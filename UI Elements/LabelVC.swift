@@ -7,13 +7,15 @@
 
 import UIKit
 
-class Label: UIViewController {
+class LabelVC: UIViewController {
     
-    fileprivate let label = UILabel()
+    @IBOutlet weak var button: UIButton!
+    fileprivate var label = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        button.layer.cornerRadius = 15
         configureLabel()
     }
     
