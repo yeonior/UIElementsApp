@@ -14,7 +14,8 @@ class ImageViewVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "UIImageView"
         configureImageView()
     }
     

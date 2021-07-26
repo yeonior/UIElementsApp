@@ -15,6 +15,7 @@ class ButtonVC: UIViewController {
         super.viewDidLoad()
         
         title = "UIButton"
+        view.backgroundColor = .white
         configureButton()
     }
     
@@ -53,6 +54,6 @@ class ButtonVC: UIViewController {
     
     @objc private func touchedUpInside(_ sender: UIButton) {
         guard sender == myButton else { return }
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
     }
 }
