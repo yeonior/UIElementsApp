@@ -10,7 +10,8 @@ import UIKit
 class LabelVC: UIViewController {
     
     @IBOutlet weak var button: UIButton!
-    var label = UILabel()
+    
+    let label = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,28 +22,18 @@ class LabelVC: UIViewController {
 
     private func configureLabel() {
 
-        // frame and location
-
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 15
-
-
-        // attributes
-
         label.text = "Something"
         label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-
-        // colors
-
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 15
+        
         label.textColor = .darkGray
         label.backgroundColor = .systemGray5
 
         view.addSubview(label)
-
-        // constraints
 
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -64,17 +55,12 @@ class LabelVC: UIViewController {
 extension LabelVC {
     
 //    private func configureLabel() {
-//        
-//        // frame and location
-//        
+//
 //        label.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
 ////        label.center = view.center
 //        label.layer.masksToBounds = true
 //        label.layer.cornerRadius = 15
-//        
-//        
-//        // attributes
-//        
+//
 //        label.text = "Something"
 //        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
 //        label.textAlignment = .center
@@ -88,16 +74,12 @@ extension LabelVC {
 ////        label.numberOfLines = 1 // should be 1
 ////        label.adjustsFontSizeToFitWidth = true
 ////        label.minimumScaleFactor = 0.1
-//        
-//        // colors
-//        
+//
 //        label.textColor = .darkGray
 //        label.backgroundColor = .systemGray5
 //        
 //        view.addSubview(label)
-//        
-//        // constraints
-//        
+//
 //        label.translatesAutoresizingMaskIntoConstraints = false
 //        
 //        // leading

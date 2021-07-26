@@ -9,46 +9,44 @@ import UIKit
 
 class ButtonVC: UIViewController {
     
-    fileprivate let button = UIButton()
+    @IBOutlet weak var buttonToNextVC: UIButton!
+    let button = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        buttonToNextVC.layer.cornerRadius = 15
         configureButton()
     }
     
-    @objc fileprivate func buttonPressed() {
-        view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
-    }
-    
-    @objc fileprivate func buttonTapped() {
-        view.backgroundColor = .systemBackground
-    }
-    
-    fileprivate func configureButton() {
+    private func configureButton() {
         
-        // frame and location
-        
-        button.frame = CGRect(x: 110, y: 450, width: 200, height: 50)
+        button.setTitle("Press me", for: .normal)
+        button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
         button.layer.cornerRadius = 15
         
-        // attributes
+        button.setTitleColor(.black.withAlphaComponent(1), for: .normal)
+        button.setTitleColor(.black.withAlphaComponent(0.5), for: .highlighted)
+        button.backgroundColor = .systemGray5
         
-        button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
-        button.setTitle("Press me", for: .normal)
-        button.setTitle("I'm pressed", for: .highlighted)
-        
-        // colors
-        
-        button.setTitleColor(.red, for: .normal)
-        button.setTitleColor(.blue, for: .highlighted)
-        button.backgroundColor = .systemGray2
-        
-        // actions
-        
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchDown)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchDown)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         view.addSubview(button)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            button.widthAnchor.constraint(equalToConstant: 200),
+            button.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    @objc private func buttonAction(sender: UIButton) {
+        guard sender == button else { return }
+        
+        print("OK")
     }
 }
