@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k36-pR-8uS">
-                                <rect key="frame" x="114" y="219" width="200" height="176"/>
+                                <rect key="frame" x="114" y="219" width="200" height="238"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Px1-Nr-FZE">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="52"/>
-                                        <color key="backgroundColor" red="0.77595028333994187" green="0.8646303157216495" blue="0.8646303157216495" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.77647058823529413" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="WIC-E6-ovC"/>
                                         </constraints>
@@ -54,11 +54,25 @@
                                             <constraint firstAttribute="height" constant="52" id="FMz-eL-JmZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
-                                        <state key="normal" title="TextView">
+                                        <state key="normal" title="Text View">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="2OS-sv-efP" kind="show" id="xG3-w7-w7Z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7H-13-yeu">
+                                        <rect key="frame" x="0.0" y="186" width="200" height="52"/>
+                                        <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="P6a-kT-AOH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <state key="normal" title="Image View">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Krm-35-OoI" kind="show" id="CMc-vy-4U6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -77,6 +91,7 @@
                     <navigationItem key="navigationItem" id="4g9-P5-Dbw"/>
                     <connections>
                         <outlet property="buttonButton" destination="au7-73-0hM" id="vYy-7A-Utt"/>
+                        <outlet property="imageViewButton" destination="H7H-13-yeu" id="UDM-RN-pvY"/>
                         <outlet property="labelButton" destination="Px1-Nr-FZE" id="z88-Ks-OOk"/>
                         <outlet property="textViewButton" destination="z9A-25-Oe2" id="dd2-9t-UfG"/>
                     </connections>
@@ -132,6 +147,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwA-yI-dA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1870" y="1101"/>
+        </scene>
+        <!--Image ViewVC-->
+        <scene sceneID="fwY-8h-Knd">
+            <objects>
+                <viewController id="Krm-35-OoI" customClass="ImageViewVC" customModule="UI_Elements" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Q5-GT-k8k">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Cs3-sO-CIX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="A08-ML-5VP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8S-YF-e7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869" y="1824"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IqU-xl-r1R">

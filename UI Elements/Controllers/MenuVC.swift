@@ -12,6 +12,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var labelButton: UIButton!
     @IBOutlet weak var buttonButton: UIButton!
     @IBOutlet weak var textViewButton: UIButton!
+    @IBOutlet weak var imageViewButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class MenuVC: UIViewController {
     
     private func configuteButtons() {
         
-        let buttons = [labelButton, buttonButton, textViewButton]
+        let buttons = [labelButton, buttonButton, textViewButton, imageViewButton]
         
         for button in buttons {
             button?.layer.cornerRadius = 15

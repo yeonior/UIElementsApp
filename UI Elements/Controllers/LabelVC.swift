@@ -9,7 +9,7 @@ import UIKit
 
 class LabelVC: UIViewController {
     
-    let label = UILabel()
+    let myLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,29 +20,29 @@ class LabelVC: UIViewController {
 
     private func configureLabel() {
 
-        label.text = "I'm a label"
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 15
+        myLabel.text = "I'm a label"
+        myLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
+        myLabel.textAlignment = .center
+        myLabel.numberOfLines = 0
+        myLabel.lineBreakMode = .byWordWrapping
+        myLabel.clipsToBounds = true
+        myLabel.layer.cornerRadius = 15
         
-        label.backgroundColor = .systemGray5
+        myLabel.backgroundColor = .systemGray5
 
-        view.addSubview(label)
+        view.addSubview(myLabel)
 
-        label.translatesAutoresizingMaskIntoConstraints = false
+        myLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
-            label.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 20),
-            label.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -20),
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            label.widthAnchor.constraint(equalToConstant: 200),
-            label.heightAnchor.constraint(equalToConstant: 200)
+            myLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
+            myLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
+            myLabel.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 20),
+            myLabel.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -20),
+            myLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            myLabel.widthAnchor.constraint(equalToConstant: 200),
+            myLabel.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
