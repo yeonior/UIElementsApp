@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A21F4A5926AEB05B001E39D6 /* TextViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5826AEB05B001E39D6 /* TextViewVC.swift */; };
+		A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5A26AED9D2001E39D6 /* MenuVC.swift */; };
 		A29C95AE269EB32700488036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95AD269EB32700488036 /* AppDelegate.swift */; };
 		A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95AF269EB32700488036 /* SceneDelegate.swift */; };
 		A29C95B2269EB32700488036 /* LabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95B1269EB32700488036 /* LabelVC.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		A21F4A5826AEB05B001E39D6 /* TextViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewVC.swift; sourceTree = "<group>"; };
+		A21F4A5A26AED9D2001E39D6 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		A29C95AA269EB32700488036 /* UI Elements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UI Elements.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29C95AD269EB32700488036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29C95AF269EB32700488036 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				A29C95AD269EB32700488036 /* AppDelegate.swift */,
 				A29C95AF269EB32700488036 /* SceneDelegate.swift */,
+				A21F4A5A26AED9D2001E39D6 /* MenuVC.swift */,
 				A29C95B1269EB32700488036 /* LabelVC.swift */,
 				A2F027D726A1E62300056367 /* ButtonVC.swift */,
 				A21F4A5826AEB05B001E39D6 /* TextViewVC.swift */,
@@ -148,6 +151,7 @@
 				A21F4A5926AEB05B001E39D6 /* TextViewVC.swift in Sources */,
 				A2F027D826A1E62300056367 /* ButtonVC.swift in Sources */,
 				A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */,
+				A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

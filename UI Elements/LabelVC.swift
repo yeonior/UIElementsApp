@@ -9,20 +9,18 @@ import UIKit
 
 class LabelVC: UIViewController {
     
-    @IBOutlet weak var button: UIButton!
-    
     let label = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        button.layer.cornerRadius = 15
+        
+        title = "UILabel"
         configureLabel()
     }
 
     private func configureLabel() {
 
-        label.text = "Something"
+        label.text = "I'm a label"
         label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -30,7 +28,6 @@ class LabelVC: UIViewController {
         label.clipsToBounds = true
         label.layer.cornerRadius = 15
         
-        label.textColor = .darkGray
         label.backgroundColor = .systemGray5
 
         view.addSubview(label)

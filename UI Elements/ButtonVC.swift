@@ -9,28 +9,30 @@ import UIKit
 
 class ButtonVC: UIViewController {
     
-    @IBOutlet weak var buttonToNextVC: UIButton!
     let button = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonToNextVC.layer.cornerRadius = 15
+        title = "UIButton"
         configureButton()
     }
     
     private func configureButton() {
         
         button.setTitle("Press me", for: .normal)
+        button.setTitle("Now release me", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
         button.layer.cornerRadius = 15
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
         
         button.setTitleColor(.black.withAlphaComponent(1), for: .normal)
         button.setTitleColor(.black.withAlphaComponent(0.5), for: .highlighted)
         button.backgroundColor = .systemGray5
         
-        button.addTarget(self, action: #selector(buttonAction), for: .touchDown)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(touchedDown(_:)), for: .touchDown)
+        button.addTarget(self, action: #selector(touchedUpInside(_:)), for: .touchUpInside)
         
         view.addSubview(button)
         
@@ -44,9 +46,13 @@ class ButtonVC: UIViewController {
         ])
     }
     
-    @objc private func buttonAction(sender: UIButton) {
+    @objc private func touchedDown(_ sender: UIButton) {
         guard sender == button else { return }
-        
-        print("OK")
+        view.backgroundColor = .black
+    }
+    
+    @objc private func touchedUpInside(_ sender: UIButton) {
+        guard sender == button else { return }
+        view.backgroundColor = .systemBackground
     }
 }

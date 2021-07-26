@@ -8,18 +8,19 @@
 import UIKit
 
 class TextViewVC: UIViewController {
-    
+      
     var textView = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        title = "UITextView"
         configureTextView()
     }
     
     private func configureTextView() {
         
-        textView.text = "Write something"
+        textView.text = "Write something here"
         textView.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)        
         textView.textAlignment = .center
         textView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
