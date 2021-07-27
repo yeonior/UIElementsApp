@@ -20,7 +20,8 @@ class SliderVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        title = "UISlider"
         configureViews()
         configureSlider()
     }
@@ -69,7 +70,7 @@ class SliderVC: UIViewController {
         NSLayoutConstraint.activate([
             mySlider.centerXAnchor.constraint(equalTo: secondView.centerXAnchor),
             mySlider.centerYAnchor.constraint(equalTo: secondView.centerYAnchor),
-            mySlider.widthAnchor.constraint(equalToConstant: 200)
+            mySlider.widthAnchor.constraint(equalTo: secondView.widthAnchor, multiplier: 0.5)
         ])
     }
     

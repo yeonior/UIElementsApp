@@ -9,10 +9,11 @@ import UIKit
 
 class MenuVC: UIViewController {
 
+    @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var labelButton: UIButton!
     @IBOutlet weak var buttonButton: UIButton!
-    @IBOutlet weak var textViewButton: UIButton!
     @IBOutlet weak var imageViewButton: UIButton!
+    @IBOutlet weak var textViewButton: UIButton!
     @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var sliderButton: UIButton!
     
@@ -26,10 +27,11 @@ class MenuVC: UIViewController {
     private func configuteButtons() {
         
         let buttons = [
+            viewButton,
             labelButton,
             buttonButton,
-            textViewButton,
             imageViewButton,
+            textViewButton,
             switchButton,
             sliderButton
         ]

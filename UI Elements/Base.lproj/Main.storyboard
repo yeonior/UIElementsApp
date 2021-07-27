@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--ViewVC-->
+        <scene sceneID="5RX-Tc-6ub">
+            <objects>
+                <viewController id="gyG-3Y-tkV" customClass="ViewVC" customModule="UI_Elements" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NiD-Tx-2OK">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jtE-S7-yBr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xMR-s5-sXg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4b-bk-NaO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-147" y="-367"/>
+        </scene>
         <!--MenuVC-->
         <scene sceneID="I0t-MV-w9a">
             <objects>
@@ -17,10 +33,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k36-pR-8uS">
-                                <rect key="frame" x="114" y="219" width="200" height="362"/>
+                                <rect key="frame" x="114" y="219" width="200" height="424"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Px1-Nr-FZE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7I-Cm-Eoi">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="52"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="Q1Q-7E-nSY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <state key="normal" title="View">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gyG-3Y-tkV" kind="show" id="h73-sY-gsb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Px1-Nr-FZE">
+                                        <rect key="frame" x="0.0" y="62" width="200" height="52"/>
                                         <color key="backgroundColor" red="0.77647058823529413" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="WIC-E6-ovC"/>
@@ -34,7 +64,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="au7-73-0hM">
-                                        <rect key="frame" x="0.0" y="62" width="200" height="52"/>
+                                        <rect key="frame" x="0.0" y="124" width="200" height="52"/>
                                         <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="K4K-B9-VpO"/>
@@ -45,20 +75,6 @@
                                         </state>
                                         <connections>
                                             <segue destination="DYk-rE-F2m" kind="show" id="Yat-X8-wdm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9A-25-Oe2">
-                                        <rect key="frame" x="0.0" y="124" width="200" height="52"/>
-                                        <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="FMz-eL-JmZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
-                                        <state key="normal" title="Text View">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="2OS-sv-efP" kind="show" id="xG3-w7-w7Z"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7H-13-yeu">
@@ -75,8 +91,22 @@
                                             <segue destination="Krm-35-OoI" kind="show" id="CMc-vy-4U6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGU-A6-6dJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9A-25-Oe2">
                                         <rect key="frame" x="0.0" y="248" width="200" height="52"/>
+                                        <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="FMz-eL-JmZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <state key="normal" title="Text View">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="2OS-sv-efP" kind="show" id="xG3-w7-w7Z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGU-A6-6dJ">
+                                        <rect key="frame" x="0.0" y="310" width="200" height="52"/>
                                         <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="jAp-bI-NsX"/>
@@ -90,7 +120,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA3-zr-EtD">
-                                        <rect key="frame" x="0.0" y="310" width="200" height="52"/>
+                                        <rect key="frame" x="0.0" y="372" width="200" height="52"/>
                                         <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="T98-kx-V5U"/>
@@ -124,11 +154,12 @@
                         <outlet property="sliderButton" destination="hA3-zr-EtD" id="PGL-HG-KSL"/>
                         <outlet property="switchButton" destination="lGU-A6-6dJ" id="xMO-pw-f5L"/>
                         <outlet property="textViewButton" destination="z9A-25-Oe2" id="dd2-9t-UfG"/>
+                        <outlet property="viewButton" destination="f7I-Cm-Eoi" id="c0G-R2-nhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fg1-FA-t4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-147.19626168224298" y="602.59179265658747"/>
+            <point key="canvasLocation" x="409" y="758"/>
         </scene>
         <!--LabelVC-->
         <scene sceneID="tne-QT-ifu">
@@ -144,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="-319"/>
+            <point key="canvasLocation" x="921" y="-367"/>
         </scene>
         <!--ButtonVC-->
         <scene sceneID="ach-e0-Zcc">
@@ -160,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYv-og-mXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="377"/>
+            <point key="canvasLocation" x="1937" y="-367"/>
         </scene>
         <!--Text ViewVC-->
         <scene sceneID="vr5-BP-gwC">
@@ -176,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwA-yI-dA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="1101"/>
+            <point key="canvasLocation" x="1936" y="414"/>
         </scene>
         <!--SwitchVC-->
         <scene sceneID="eU6-b6-XvS">
@@ -192,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYa-Lb-4m8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-147" y="1435"/>
+            <point key="canvasLocation" x="920" y="1854"/>
         </scene>
         <!--SliderVC-->
         <scene sceneID="bsv-wI-yKl">
@@ -208,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZu-cs-nLK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="752" y="1852"/>
+            <point key="canvasLocation" x="1936" y="1855"/>
         </scene>
         <!--Image ViewVC-->
         <scene sceneID="fwY-8h-Knd">
@@ -224,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8S-YF-e7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869" y="1824"/>
+            <point key="canvasLocation" x="1936" y="1142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IqU-xl-r1R">
@@ -242,7 +273,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3J-ER-EFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1047.1962616822429" y="602.59179265658747"/>
+            <point key="canvasLocation" x="-491" y="758"/>
         </scene>
     </scenes>
     <resources>

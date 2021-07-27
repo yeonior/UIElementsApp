@@ -35,8 +35,8 @@ class ImageViewVC: UIViewController {
         NSLayoutConstraint.activate([
             myImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            myImageView.widthAnchor.constraint(equalToConstant: 200),
-            myImageView.heightAnchor.constraint(equalToConstant: 200)
+            myImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            myImageView.heightAnchor.constraint(equalTo: myImageView.widthAnchor)
         ])
     }
 }

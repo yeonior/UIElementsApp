@@ -23,7 +23,8 @@ class TextViewVC: UIViewController {
         myTextView.text = "Write something here"
         myTextView.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)        
         myTextView.textAlignment = .center
-        myTextView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        myTextView.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        myTextView.textContainer.lineBreakMode = .byCharWrapping
         myTextView.layer.cornerRadius = 15
         
         myTextView.backgroundColor = .systemGray5
@@ -35,8 +36,8 @@ class TextViewVC: UIViewController {
         NSLayoutConstraint.activate([
             myTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            myTextView.widthAnchor.constraint(equalToConstant: 200),
-            myTextView.heightAnchor.constraint(equalToConstant: 200)
+            myTextView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            myTextView.heightAnchor.constraint(equalTo: myTextView.widthAnchor)
         ])
     }
     

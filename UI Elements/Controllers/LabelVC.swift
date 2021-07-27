@@ -35,14 +35,10 @@ class LabelVC: UIViewController {
         myLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            myLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
-            myLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
-            myLabel.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 20),
-            myLabel.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -20),
             myLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            myLabel.widthAnchor.constraint(equalToConstant: 200),
-            myLabel.heightAnchor.constraint(equalToConstant: 200)
+            myLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            myLabel.heightAnchor.constraint(equalTo: myLabel.widthAnchor)
         ])
     }
 }

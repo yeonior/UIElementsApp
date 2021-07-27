@@ -28,8 +28,8 @@ class ButtonVC: UIViewController {
         myButton.titleLabel?.numberOfLines = 0
         myButton.titleLabel?.textAlignment = .center
         
-        myButton.setTitleColor(.black.withAlphaComponent(1), for: .normal)
-        myButton.setTitleColor(.black.withAlphaComponent(0.5), for: .highlighted)
+        myButton.setTitleColor(.label.withAlphaComponent(1), for: .normal)
+        myButton.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
         myButton.backgroundColor = .systemGray5
         
         myButton.addTarget(self, action: #selector(touchedDown(_:)), for: .touchDown)
@@ -42,8 +42,8 @@ class ButtonVC: UIViewController {
         NSLayoutConstraint.activate([
             myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            myButton.widthAnchor.constraint(equalToConstant: 200),
-            myButton.heightAnchor.constraint(equalToConstant: 200)
+            myButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            myButton.heightAnchor.constraint(equalTo: myButton.widthAnchor)
         ])
     }
     
