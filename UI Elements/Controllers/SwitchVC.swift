@@ -22,12 +22,12 @@ class SwitchVC: UIViewController {
     private func configureSwitch() {
         
         mySwitch.setOn(true, animated: true)
-        
-        mySwitch.addTarget(self, action: #selector(useSwitch(_:)), for: .valueChanged)
-        
+                
         mySwitch.tintColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         mySwitch.onTintColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         mySwitch.thumbTintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        
+        mySwitch.addTarget(self, action: #selector(switchStateDidChange(_:)), for: .valueChanged)
         
         view.addSubview(mySwitch)
         
@@ -39,7 +39,7 @@ class SwitchVC: UIViewController {
         ])
     }
     
-    @objc private func useSwitch(_ sender: UISwitch) {
+    @objc private func switchStateDidChange(_ sender: UISwitch) {
         guard sender == mySwitch else { return }
         
         if sender.isOn {

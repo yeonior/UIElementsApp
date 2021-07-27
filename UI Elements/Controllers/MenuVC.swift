@@ -14,6 +14,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var textViewButton: UIButton!
     @IBOutlet weak var imageViewButton: UIButton!
     @IBOutlet weak var switchButton: UIButton!
+    @IBOutlet weak var sliderButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,8 @@ class MenuVC: UIViewController {
             buttonButton,
             textViewButton,
             imageViewButton,
-            switchButton
+            switchButton,
+            sliderButton
         ]
         
         for button in buttons {
