@@ -19,15 +19,16 @@ class MenuVC: UIViewController {
     @IBOutlet weak var pickerViewButton: UIButton!
     @IBOutlet weak var datePickerButton: UIButton!
     @IBOutlet weak var segmentedControlButton: UIButton!
+    @IBOutlet weak var alertControllerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Menu"
-        configuteButtons()
+        configureButtons()
     }
     
-    private func configuteButtons() {
+    private func configureButtons() {
         
         let buttons = [
             viewButton,
@@ -39,7 +40,8 @@ class MenuVC: UIViewController {
             sliderButton,
             pickerViewButton,
             datePickerButton,
-            segmentedControlButton
+            segmentedControlButton,
+            alertControllerButton
         ]
         
         for button in buttons {

@@ -29,7 +29,7 @@ class ButtonVC: UIViewController {
         myButton.titleLabel?.textAlignment = .center
         
         myButton.setTitleColor(.label.withAlphaComponent(1), for: .normal)
-        myButton.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
+        myButton.setTitleColor(.label.withAlphaComponent(0.2), for: .highlighted)
         myButton.backgroundColor = .systemGray5
         
         myButton.addTarget(self, action: #selector(touchedDown(_:)), for: .touchDown)
