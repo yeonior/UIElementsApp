@@ -36,10 +36,10 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="712"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1f3-yL-DGt">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="712"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="774"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k36-pR-8uS">
-                                                <rect key="frame" x="85.666666666666657" y="40" width="256.66666666666674" height="548"/>
+                                                <rect key="frame" x="85.666666666666657" y="40" width="256.66666666666674" height="610"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7I-Cm-Eoi">
                                                         <rect key="frame" x="0.0" y="0.0" width="256.66666666666669" height="52"/>
@@ -167,6 +167,20 @@
                                                             <segue destination="EEQ-nb-14Z" kind="show" id="Ekd-MV-Rpz"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp1-CS-qFA">
+                                                        <rect key="frame" x="0.0" y="558" width="256.66666666666669" height="52"/>
+                                                        <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="52" id="d4j-Sh-wII"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                        <state key="normal" title="Segmented Control">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="WjY-Ms-7Hk" kind="show" id="wty-iF-Rf4"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -207,6 +221,7 @@
                         <outlet property="imageViewButton" destination="H7H-13-yeu" id="UDM-RN-pvY"/>
                         <outlet property="labelButton" destination="Px1-Nr-FZE" id="z88-Ks-OOk"/>
                         <outlet property="pickerViewButton" destination="m9L-uo-UTS" id="WtJ-uj-oOD"/>
+                        <outlet property="segmentedControlButton" destination="Qp1-CS-qFA" id="ySA-WG-tfJ"/>
                         <outlet property="sliderButton" destination="hA3-zr-EtD" id="PGL-HG-KSL"/>
                         <outlet property="switchButton" destination="lGU-A6-6dJ" id="xMO-pw-f5L"/>
                         <outlet property="textViewButton" destination="z9A-25-Oe2" id="dd2-9t-UfG"/>
@@ -264,6 +279,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwA-yI-dA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1936" y="414"/>
+        </scene>
+        <!--Segmented ControlVC-->
+        <scene sceneID="90b-kn-Wf1">
+            <objects>
+                <viewController id="WjY-Ms-7Hk" customClass="SegmentedControlVC" customModule="UI_Elements" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UR2-Fh-Nze">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="b09-uc-bdh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AGX-Ks-AZe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILh-IX-E0x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2100" y="1877"/>
         </scene>
         <!--Date PickerVC-->
         <scene sceneID="xSI-57-nnD">
