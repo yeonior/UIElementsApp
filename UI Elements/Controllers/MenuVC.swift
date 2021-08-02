@@ -20,6 +20,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var datePickerButton: UIButton!
     @IBOutlet weak var segmentedControlButton: UIButton!
     @IBOutlet weak var alertControllerButton: UIButton!
+    @IBOutlet weak var activityViewControllerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,8 @@ class MenuVC: UIViewController {
             pickerViewButton,
             datePickerButton,
             segmentedControlButton,
-            alertControllerButton
+            alertControllerButton,
+            activityViewControllerButton
         ]
         
         for button in buttons {

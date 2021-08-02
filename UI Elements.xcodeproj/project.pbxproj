@@ -22,6 +22,9 @@
 		A29C95B5269EB32700488036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A29C95B3269EB32700488036 /* Main.storyboard */; };
 		A29C95B7269EB32800488036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A29C95B6269EB32800488036 /* Assets.xcassets */; };
 		A29C95BA269EB32800488036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A29C95B8269EB32800488036 /* LaunchScreen.storyboard */; };
+		A2BBBDD326B810F5004AC00F /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDD226B810F5004AC00F /* UIColor + Extension.swift */; };
+		A2BBBDD626B81190004AC00F /* ActivityViewControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */; };
+		A2BBBDDB26B846D2004AC00F /* MyCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */; };
 		A2DDC21026B56E640059262D /* SegmentedControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */; };
 		A2F027D826A1E62300056367 /* ButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F027D726A1E62300056367 /* ButtonVC.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		A29C95B6269EB32800488036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A29C95B9269EB32800488036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A29C95BB269EB32800488036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2BBBDD226B810F5004AC00F /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewControllerVC.swift; sourceTree = "<group>"; };
+		A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomActivity.swift; sourceTree = "<group>"; };
 		A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlVC.swift; sourceTree = "<group>"; };
 		A2F027D726A1E62300056367 /* ButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +80,7 @@
 				A26A3DEE26B464C20008C590 /* DatePickerVC.swift */,
 				A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */,
 				A21638E126B710A900DF0D37 /* AlertControllerVC.swift */,
+				A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -100,12 +107,30 @@
 				A29C95AD269EB32700488036 /* AppDelegate.swift */,
 				A29C95AF269EB32700488036 /* SceneDelegate.swift */,
 				A21F4A5E26AF0DBE001E39D6 /* Controllers */,
+				A2BBBDD926B8338E004AC00F /* Support */,
+				A2BBBDD426B810FA004AC00F /* Extensions */,
 				A29C95B3269EB32700488036 /* Main.storyboard */,
 				A29C95B6269EB32800488036 /* Assets.xcassets */,
 				A29C95B8269EB32800488036 /* LaunchScreen.storyboard */,
 				A29C95BB269EB32800488036 /* Info.plist */,
 			);
 			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		A2BBBDD426B810FA004AC00F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A2BBBDD226B810F5004AC00F /* UIColor + Extension.swift */,
+				A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A2BBBDD926B8338E004AC00F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,11 +212,14 @@
 				A28906E226B0274F00034CD1 /* PickerViewVC.swift in Sources */,
 				A2DDC21026B56E640059262D /* SegmentedControlVC.swift in Sources */,
 				A2F027D826A1E62300056367 /* ButtonVC.swift in Sources */,
+				A2BBBDD326B810F5004AC00F /* UIColor + Extension.swift in Sources */,
 				A21638E226B710A900DF0D37 /* AlertControllerVC.swift in Sources */,
 				A28906DE26AFFF7900034CD1 /* SliderVC.swift in Sources */,
 				A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */,
 				A26A3DEF26B464C20008C590 /* DatePickerVC.swift in Sources */,
 				A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */,
+				A2BBBDD626B81190004AC00F /* ActivityViewControllerVC.swift in Sources */,
+				A2BBBDDB26B846D2004AC00F /* MyCustomActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -71,29 +71,17 @@ class AlertControllerVC: UIViewController {
             let alertController = UIAlertController(title: "This is an action sheet",
                                                     message: "It displayed by the view controller that presented it",
                                                     preferredStyle: .actionSheet)
-            let okButton = UIAlertAction(title: "OK", style: .default)
+            let okButton = UIAlertAction(title: "OK", style: .cancel)
             let ohRightButton = UIAlertAction(title: "Change buttons color", style: .default) { [unowned self] _ in
                 let buttons = [self.alertButton, self.actionSheetButton]
                 for button in buttons {
                     button.backgroundColor = UIColor.random
                 }
             }
-            let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
             
             alertController.addAction(okButton)
             alertController.addAction(ohRightButton)
-            alertController.addAction(cancelButton)
             present(alertController, animated: true)
         }
-    }
-}
-
-extension UIColor {
-    
-    static var random: UIColor {
-        return UIColor(red: .random(in: 0...1),
-                       green: .random(in: 0...1),
-                       blue: .random(in: 0...1),
-                       alpha: 0.4)
     }
 }
