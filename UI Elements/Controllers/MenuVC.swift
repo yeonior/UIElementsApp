@@ -14,6 +14,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var buttonButton: UIButton!
     @IBOutlet weak var imageViewButton: UIButton!
     @IBOutlet weak var textViewButton: UIButton!
+    @IBOutlet weak var textFieldButton: UIButton!
     @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var sliderButton: UIButton!
     @IBOutlet weak var pickerViewButton: UIButton!
@@ -36,6 +37,7 @@ class MenuVC: UIViewController {
             labelButton,
             buttonButton,
             imageViewButton,
+            textFieldButton,
             textViewButton,
             switchButton,
             sliderButton,

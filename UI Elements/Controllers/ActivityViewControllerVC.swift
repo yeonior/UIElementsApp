@@ -46,12 +46,13 @@ class ActivityViewControllerVC: UIViewController {
         
         guard sender == shareButton else { return }
         
-        let image = UIImage(systemName: "wand.and.stars.inverse")
         let activity = MyCustomActivity(title: "Change background color",
-                                        image: image) { [unowned self] _ in
+                                        image: UIImage(systemName: "wand.and.stars.inverse")) { [unowned self] _ in
+            
             self.view.backgroundColor = UIColor.random
         }
-        myActivityViewController = UIActivityViewController(activityItems: ["Something"], applicationActivities: [activity])
+        myActivityViewController = UIActivityViewController(activityItems: ["Something"],
+                                                            applicationActivities: [activity])
         myActivityViewController?.excludedActivityTypes = [.postToFacebook, .postToWeibo]
         
         if let activityVC = myActivityViewController {
