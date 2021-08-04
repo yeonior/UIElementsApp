@@ -14,7 +14,9 @@ class ActivityViewControllerVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "UIActivityViewController"
+        view.backgroundColor = .systemBackground
         configureButton()
     }
     

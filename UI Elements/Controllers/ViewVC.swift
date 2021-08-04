@@ -13,7 +13,9 @@ class ViewVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "UIView"
+        view.backgroundColor = .systemBackground
         configureView()
     }
     

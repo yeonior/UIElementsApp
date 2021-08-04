@@ -19,6 +19,7 @@ class TextFieldVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         title = "UITextField"
+        view.backgroundColor = .systemBackground
         configureTextField()
     }
     
@@ -56,7 +57,7 @@ class TextFieldVC: UIViewController {
         let keyboardHeight = keyboardViewEndFrame.height
         
         if notification.name == UIResponder.keyboardWillShowNotification {
-            self.view.frame.origin.y = (-keyboardHeight + statusBarHeight + navigationBarHeight) / 2
+            self.view.frame.origin.y = (statusBarHeight + navigationBarHeight - keyboardHeight) / 2
         } else {
             self.view.frame.origin.y = .zero
         }

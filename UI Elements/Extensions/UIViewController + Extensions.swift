@@ -1,8 +1,8 @@
 //
-//  UIApplication + Extension.swift
+//  UIViewController + Extensions.swift
 //  UI Elements
 //
-//  Created by ruslan on 03.08.2021.
+//  Created by ruslan on 04.08.2021.
 //
 
 import UIKit

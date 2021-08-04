@@ -13,7 +13,9 @@ class SegmentedControlVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "UISegmentedControl"
+        view.backgroundColor = .systemBackground
         cofigureSegmentedControl()
     }
     

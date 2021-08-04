@@ -15,6 +15,7 @@ class LabelVC: UIViewController {
         super.viewDidLoad()
         
         title = "UILabel"
+        view.backgroundColor = .systemBackground
         configureLabel()
     }
 

@@ -16,6 +16,7 @@ class AlertControllerVC: UIViewController {
         super.viewDidLoad()
         
         title = "UIAlertController"
+        view.backgroundColor = .systemBackground
         configureButtons()
     }
     

@@ -16,6 +16,7 @@ class ImageViewVC: UIViewController {
         super.viewDidLoad()
         
         title = "UIImageView"
+        view.backgroundColor = .systemBackground
         configureImageView()
     }
     

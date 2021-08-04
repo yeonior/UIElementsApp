@@ -19,6 +19,7 @@ class TextViewVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         title = "UITextView"
+        view.backgroundColor = .systemBackground
         configureTextView()
     }
     

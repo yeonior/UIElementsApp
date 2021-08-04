@@ -12,18 +12,18 @@
 		A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5A26AED9D2001E39D6 /* MenuVC.swift */; };
 		A21F4A5D26AF0DB6001E39D6 /* ImageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5C26AF0DB6001E39D6 /* ImageViewVC.swift */; };
 		A21F4A6026AF2568001E39D6 /* SwitchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5F26AF2568001E39D6 /* SwitchVC.swift */; };
-		A239BFF326B925B7006548C6 /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239BFF226B925B7006548C6 /* UIApplication + Extension.swift */; };
 		A26A3DEF26B464C20008C590 /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26A3DEE26B464C20008C590 /* DatePickerVC.swift */; };
+		A26F134726BAFF0C004B8B68 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */; };
+		A26F134B26BB0C13004B8B68 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */; };
 		A28906DE26AFFF7900034CD1 /* SliderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906DD26AFFF7800034CD1 /* SliderVC.swift */; };
 		A28906E026B0168300034CD1 /* ViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906DF26B0168300034CD1 /* ViewVC.swift */; };
 		A28906E226B0274F00034CD1 /* PickerViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906E126B0274F00034CD1 /* PickerViewVC.swift */; };
 		A29C95AE269EB32700488036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95AD269EB32700488036 /* AppDelegate.swift */; };
 		A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95AF269EB32700488036 /* SceneDelegate.swift */; };
 		A29C95B2269EB32700488036 /* LabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95B1269EB32700488036 /* LabelVC.swift */; };
-		A29C95B5269EB32700488036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A29C95B3269EB32700488036 /* Main.storyboard */; };
 		A29C95B7269EB32800488036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A29C95B6269EB32800488036 /* Assets.xcassets */; };
 		A29C95BA269EB32800488036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A29C95B8269EB32800488036 /* LaunchScreen.storyboard */; };
-		A2BBBDD326B810F5004AC00F /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDD226B810F5004AC00F /* UIColor + Extension.swift */; };
+		A2BBBDD326B810F5004AC00F /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDD226B810F5004AC00F /* UIColor + Extensions.swift */; };
 		A2BBBDD626B81190004AC00F /* ActivityViewControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */; };
 		A2BBBDDB26B846D2004AC00F /* MyCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */; };
 		A2BBBDDD26B8633F004AC00F /* TextFieldVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDDC26B8633F004AC00F /* TextFieldVC.swift */; };
@@ -37,8 +37,9 @@
 		A21F4A5A26AED9D2001E39D6 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		A21F4A5C26AF0DB6001E39D6 /* ImageViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewVC.swift; sourceTree = "<group>"; };
 		A21F4A5F26AF2568001E39D6 /* SwitchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchVC.swift; sourceTree = "<group>"; };
-		A239BFF226B925B7006548C6 /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
 		A26A3DEE26B464C20008C590 /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
+		A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
+		A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 		A28906DD26AFFF7800034CD1 /* SliderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderVC.swift; sourceTree = "<group>"; };
 		A28906DF26B0168300034CD1 /* ViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewVC.swift; sourceTree = "<group>"; };
 		A28906E126B0274F00034CD1 /* PickerViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewVC.swift; sourceTree = "<group>"; };
@@ -46,11 +47,10 @@
 		A29C95AD269EB32700488036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29C95AF269EB32700488036 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A29C95B1269EB32700488036 /* LabelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelVC.swift; sourceTree = "<group>"; };
-		A29C95B4269EB32700488036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A29C95B6269EB32800488036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A29C95B9269EB32800488036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A29C95BB269EB32800488036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2BBBDD226B810F5004AC00F /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		A2BBBDD226B810F5004AC00F /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewControllerVC.swift; sourceTree = "<group>"; };
 		A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomActivity.swift; sourceTree = "<group>"; };
 		A2BBBDDC26B8633F004AC00F /* TextFieldVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldVC.swift; sourceTree = "<group>"; };
@@ -121,9 +121,10 @@
 		A2BBBDD426B810FA004AC00F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A239BFF226B925B7006548C6 /* UIApplication + Extension.swift */,
-				A2BBBDD226B810F5004AC00F /* UIColor + Extension.swift */,
+				A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */,
+				A2BBBDD226B810F5004AC00F /* UIColor + Extensions.swift */,
 				A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */,
+				A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -131,7 +132,6 @@
 		A2BBBDD926B8338E004AC00F /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				A29C95B3269EB32700488036 /* Main.storyboard */,
 				A29C95B8269EB32800488036 /* LaunchScreen.storyboard */,
 				A29C95B6269EB32800488036 /* Assets.xcassets */,
 				A29C95BB269EB32800488036 /* Info.plist */,
@@ -198,7 +198,6 @@
 			files = (
 				A29C95BA269EB32800488036 /* LaunchScreen.storyboard in Resources */,
 				A29C95B7269EB32800488036 /* Assets.xcassets in Resources */,
-				A29C95B5269EB32700488036 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,13 +213,14 @@
 				A21F4A5D26AF0DB6001E39D6 /* ImageViewVC.swift in Sources */,
 				A29C95AE269EB32700488036 /* AppDelegate.swift in Sources */,
 				A2BBBDDD26B8633F004AC00F /* TextFieldVC.swift in Sources */,
-				A239BFF326B925B7006548C6 /* UIApplication + Extension.swift in Sources */,
 				A21F4A5926AEB05B001E39D6 /* TextViewVC.swift in Sources */,
 				A21F4A6026AF2568001E39D6 /* SwitchVC.swift in Sources */,
+				A26F134726BAFF0C004B8B68 /* MyCustomButton.swift in Sources */,
 				A28906E226B0274F00034CD1 /* PickerViewVC.swift in Sources */,
+				A26F134B26BB0C13004B8B68 /* UIViewController + Extensions.swift in Sources */,
 				A2DDC21026B56E640059262D /* SegmentedControlVC.swift in Sources */,
 				A2F027D826A1E62300056367 /* ButtonVC.swift in Sources */,
-				A2BBBDD326B810F5004AC00F /* UIColor + Extension.swift in Sources */,
+				A2BBBDD326B810F5004AC00F /* UIColor + Extensions.swift in Sources */,
 				A21638E226B710A900DF0D37 /* AlertControllerVC.swift in Sources */,
 				A28906DE26AFFF7900034CD1 /* SliderVC.swift in Sources */,
 				A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */,
@@ -234,14 +234,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A29C95B3269EB32700488036 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A29C95B4269EB32700488036 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A29C95B8269EB32800488036 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

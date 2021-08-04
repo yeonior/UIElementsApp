@@ -15,6 +15,7 @@ class DatePickerVC: UIViewController {
         super.viewDidLoad()
         
         title = "UIDatePicker"
+        view.backgroundColor = .systemBackground
         configureDatePicker()
     }
     
