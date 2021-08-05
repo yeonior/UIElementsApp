@@ -67,7 +67,7 @@ class TextFieldVC: UIViewController {
 extension TextFieldVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        view.backgroundColor = .systemGray4
+        view.backgroundColor = .systemGray3
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

@@ -9,6 +9,10 @@ import UIKit
 
 class MenuVC: UIViewController {
     
+    lazy var myScrollView = UIScrollView()
+    lazy var myStackView = UIStackView()
+    var myStackViewContentSizeKey = false
+    
     lazy var viewButton: MyCustomButton = {
         let button = MyCustomButton(title: "View")
         return button
@@ -79,10 +83,36 @@ class MenuVC: UIViewController {
         
         title = "Menu"
         view.backgroundColor = .systemBackground
+        configureScrollView()
         configureButtons()
     }
     
-    func configureButtons() {
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if !myStackViewContentSizeKey {
+            myScrollView.contentSize = CGSize(width: view.bounds.size.width,
+                                              height: myStackView.bounds.size.height + 80)
+            myStackViewContentSizeKey = true
+        }
+    }
+    
+    private func configureScrollView() {
+        
+        myScrollView.bounds = view.bounds
+        myScrollView.backgroundColor = .systemBackground
+        
+        view.addSubview(myScrollView)
+        
+        myScrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            myScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            myScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            myScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            myScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        ])
+    }
+    
+    private func configureButtons() {
         
         let buttons = [
             viewButton,
@@ -105,64 +135,41 @@ class MenuVC: UIViewController {
             button.addTarget(self, action: #selector(pushVC(_:)), for: .touchUpInside)
         }
         
-        let stackView = UIStackView(arrangedSubviews: buttons)
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
+        myStackView = UIStackView(arrangedSubviews: buttons)
+        myStackView.axis = .vertical
+        myStackView.distribution = .fillEqually
+        myStackView.spacing = 10
         
-        view.addSubview(stackView)
+        myScrollView.addSubview(myStackView)
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        myStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)
+            myStackView.centerXAnchor.constraint(equalTo: myScrollView.centerXAnchor),
+            myStackView.topAnchor.constraint(equalTo: myScrollView.topAnchor, constant: 40),
+            myStackView.widthAnchor.constraint(equalTo: myScrollView.widthAnchor, multiplier: 0.6)
         ])
     }
     
-    @objc func pushVC(_ sender: UIButton) {
+    @objc private func pushVC(_ sender: UIButton) {
+        
+        var viewController = UIViewController()
+        
         switch sender {
-        case viewButton:
-            let viewController = ViewVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case labelButton:
-            let viewController = LabelVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case buttonButton:
-            let viewController = ButtonVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case imageViewButton:
-            let viewController = ImageViewVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case textFieldButton:
-            let viewController = TextFieldVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case textViewButton:
-            let viewController = TextViewVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case switchButton:
-            let viewController = SwitchVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case sliderButton:
-            let viewController = SliderVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case pickerViewButton:
-            let viewController = PickerViewVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case datePickerButton:
-            let viewController = DatePickerVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case segmentedControlButton:
-            let viewController = SegmentedControlVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case alertControllerButton:
-            let viewController = AlertControllerVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        case activityViewControllerButton:
-            let viewController = ActivityViewControllerVC()
-            navigationController?.pushViewController(viewController, animated: true)
-        default:
-            break
+        case viewButton: viewController = ViewVC()
+        case labelButton: viewController = LabelVC()
+        case buttonButton: viewController = ButtonVC()
+        case imageViewButton: viewController = ImageViewVC()
+        case textFieldButton: viewController = TextFieldVC()
+        case textViewButton: viewController = TextViewVC()
+        case switchButton: viewController = SwitchVC()
+        case sliderButton: viewController = SliderVC()
+        case pickerViewButton: viewController = PickerViewVC()
+        case datePickerButton: viewController = DatePickerVC()
+        case segmentedControlButton: viewController = SegmentedControlVC()
+        case alertControllerButton: viewController = AlertControllerVC()
+        case activityViewControllerButton: viewController = ActivityViewControllerVC()
+        default: break
         }
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

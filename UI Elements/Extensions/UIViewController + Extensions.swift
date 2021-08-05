@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     
     var statusBarHeight: CGFloat {
-        return view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        return view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0
     }
     
     var navigationBarHeight: CGFloat {

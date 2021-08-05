@@ -23,7 +23,7 @@ class MyCustomButton: UIButton {
         
         setTitleColor(.label.withAlphaComponent(1), for: .normal)
         setTitleColor(.label.withAlphaComponent(0.2), for: .highlighted)
-        backgroundColor = #colorLiteral(red: 0.7764705882, green: 0.862745098, blue: 0.862745098, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.7764705882, green: 0.862745098, blue: 0.862745098, alpha: 1).withAlphaComponent(0.5)
     }
     
     required init?(coder: NSCoder) {

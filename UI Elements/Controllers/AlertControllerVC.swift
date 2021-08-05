@@ -76,7 +76,7 @@ class AlertControllerVC: UIViewController {
             let ohRightButton = UIAlertAction(title: "Change buttons color", style: .default) { [unowned self] _ in
                 let buttons = [self.alertButton, self.actionSheetButton]
                 for button in buttons {
-                    button.backgroundColor = UIColor.random
+                    button.backgroundColor = UIColor.random.withAlphaComponent(0.4)
                 }
             }
             
