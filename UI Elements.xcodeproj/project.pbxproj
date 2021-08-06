@@ -15,6 +15,7 @@
 		A26A3DEF26B464C20008C590 /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26A3DEE26B464C20008C590 /* DatePickerVC.swift */; };
 		A26F134726BAFF0C004B8B68 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */; };
 		A26F134B26BB0C13004B8B68 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */; };
+		A276699C26BC59A100FE8746 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276699B26BC59A100FE8746 /* WebViewVC.swift */; };
 		A28906DE26AFFF7900034CD1 /* SliderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906DD26AFFF7800034CD1 /* SliderVC.swift */; };
 		A28906E026B0168300034CD1 /* ViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906DF26B0168300034CD1 /* ViewVC.swift */; };
 		A28906E226B0274F00034CD1 /* PickerViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906E126B0274F00034CD1 /* PickerViewVC.swift */; };
@@ -40,6 +41,7 @@
 		A26A3DEE26B464C20008C590 /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
 		A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
 		A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
+		A276699B26BC59A100FE8746 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		A28906DD26AFFF7800034CD1 /* SliderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderVC.swift; sourceTree = "<group>"; };
 		A28906DF26B0168300034CD1 /* ViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewVC.swift; sourceTree = "<group>"; };
 		A28906E126B0274F00034CD1 /* PickerViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewVC.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */,
 				A21638E126B710A900DF0D37 /* AlertControllerVC.swift */,
 				A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */,
+				A276699B26BC59A100FE8746 /* WebViewVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				A28906DE26AFFF7900034CD1 /* SliderVC.swift in Sources */,
 				A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */,
 				A26A3DEF26B464C20008C590 /* DatePickerVC.swift in Sources */,
+				A276699C26BC59A100FE8746 /* WebViewVC.swift in Sources */,
 				A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */,
 				A2BBBDD626B81190004AC00F /* ActivityViewControllerVC.swift in Sources */,
 				A2BBBDDB26B846D2004AC00F /* MyCustomActivity.swift in Sources */,

@@ -78,6 +78,11 @@ class MenuVC: UIViewController {
         return button
     }()
     
+    lazy var webViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "WebView")
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -127,7 +132,8 @@ class MenuVC: UIViewController {
             datePickerButton,
             segmentedControlButton,
             alertControllerButton,
-            activityViewControllerButton
+            activityViewControllerButton,
+            webViewButton
         ]
         for button in buttons {
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -168,6 +174,11 @@ class MenuVC: UIViewController {
         case segmentedControlButton: viewController = SegmentedControlVC()
         case alertControllerButton: viewController = AlertControllerVC()
         case activityViewControllerButton: viewController = ActivityViewControllerVC()
+        case webViewButton:
+            viewController = WebViewVC()
+            let navigationVC = UINavigationController(rootViewController: viewController)
+            present(navigationVC, animated: true, completion: nil)
+            return
         default: break
         }
         navigationController?.pushViewController(viewController, animated: true)
