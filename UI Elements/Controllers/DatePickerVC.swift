@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DatePickerVC: UIViewController {
+final class DatePickerVC: UIViewController {
     
-    let myDatePicker = UIDatePicker()
+    private let myDatePicker = UIDatePicker()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TextViewVC: UIViewController {
+final class TextViewVC: UIViewController {
       
-    let myTextView = UITextView()
+    private let myTextView = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

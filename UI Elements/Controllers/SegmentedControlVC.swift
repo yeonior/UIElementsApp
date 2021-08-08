@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SegmentedControlVC: UIViewController {
+final class SegmentedControlVC: UIViewController {
     
-    var mySegmentedControl = UISegmentedControl()
+    private var mySegmentedControl = UISegmentedControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()

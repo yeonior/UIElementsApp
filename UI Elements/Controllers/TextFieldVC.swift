@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TextFieldVC: UIViewController {
+final class TextFieldVC: UIViewController {
     
-    let myTextField = UITextField()
+    private let myTextField = UITextField()
 
     override func viewDidLoad() {
         super.viewDidLoad()

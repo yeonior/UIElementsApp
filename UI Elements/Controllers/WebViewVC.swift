@@ -8,9 +8,9 @@
 import UIKit
 import WebKit
 
-class WebViewVC: UIViewController, WKNavigationDelegate {
+final class WebViewVC: UIViewController, WKNavigationDelegate {
     
-    var myWebView: WKWebView!
+    private var myWebView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

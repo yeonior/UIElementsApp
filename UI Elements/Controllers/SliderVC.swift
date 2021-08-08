@@ -7,12 +7,12 @@
 
 import UIKit
 
-class SliderVC: UIViewController {
+final class SliderVC: UIViewController {
     
-    let mySlider = UISlider()
-    let firstView = UIView()
-    let secondView = UIView()
-    var firstViewAlpha: CGFloat = 1.0 {
+    private let mySlider = UISlider()
+    private let firstView = UIView()
+    private let secondView = UIView()
+    private var firstViewAlpha: CGFloat = 1.0 {
         didSet {
             firstView.alpha = firstViewAlpha
         }

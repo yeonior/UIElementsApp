@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SwitchVC: UIViewController {
+final class SwitchVC: UIViewController {
     
-    let mySwitch = UISwitch()
+    private let mySwitch = UISwitch()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,16 +7,16 @@
 
 import UIKit
 
-class PickerViewVC: UIViewController {
+final class PickerViewVC: UIViewController {
     
-    let myPickerView = UIPickerView()
+    private let myPickerView = UIPickerView()
     
-    var rgb: (CGFloat, CGFloat, CGFloat) = (0.9, 0.8, 0.7) {
+    private var rgb: (CGFloat, CGFloat, CGFloat) = (0.9, 0.8, 0.7) {
         didSet {
             view.backgroundColor = backgroundColor
         }
     }
-    var backgroundColor: UIColor {
+    private var backgroundColor: UIColor {
         UIColor(red: rgb.0, green: rgb.1, blue: rgb.2, alpha: 1.0)
     }
 //    var label1: UILabel = {

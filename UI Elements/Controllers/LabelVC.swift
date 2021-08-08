@@ -7,9 +7,9 @@
 
 import UIKit
 
-class LabelVC: UIViewController {
+final class LabelVC: UIViewController {
     
-    let myLabel = UILabel()
+    private let myLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

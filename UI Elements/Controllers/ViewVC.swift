@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ViewVC: UIViewController {
+final class ViewVC: UIViewController {
     
-    let myView = UIView()
+    private let myView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

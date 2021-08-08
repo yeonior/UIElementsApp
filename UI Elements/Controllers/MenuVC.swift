@@ -7,79 +7,84 @@
 
 import UIKit
 
-class MenuVC: UIViewController {
+final class MenuVC: UIViewController {
     
-    lazy var myScrollView = UIScrollView()
-    lazy var myStackView = UIStackView()
-    var myStackViewContentSizeKey = false
+    private lazy var myScrollView = UIScrollView()
+    private lazy var myStackView = UIStackView()
+    private var myStackViewContentSizeKey = false
     
-    lazy var viewButton: MyCustomButton = {
+    private lazy var viewButton: MyCustomButton = {
         let button = MyCustomButton(title: "View")
         return button
     }()
     
-    lazy var labelButton: MyCustomButton = {
+    private lazy var labelButton: MyCustomButton = {
         let button = MyCustomButton(title: "Label")
         return button
     }()
     
-    lazy var buttonButton: MyCustomButton = {
+    private lazy var buttonButton: MyCustomButton = {
         let button = MyCustomButton(title: "Button")
         return button
     }()
     
-    lazy var imageViewButton: MyCustomButton = {
+    private lazy var imageViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "ImageView")
         return button
     }()
     
-    lazy var textViewButton: MyCustomButton = {
+    private lazy var textViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "TextView")
         return button
     }()
     
-    lazy var textFieldButton: MyCustomButton = {
+    private lazy var textFieldButton: MyCustomButton = {
         let button = MyCustomButton(title: "TextField")
         return button
     }()
     
-    lazy var switchButton: MyCustomButton = {
+    private lazy var switchButton: MyCustomButton = {
         let button = MyCustomButton(title: "Switch")
         return button
     }()
     
-    lazy var sliderButton: MyCustomButton = {
+    private lazy var sliderButton: MyCustomButton = {
         let button = MyCustomButton(title: "Slider")
         return button
     }()
     
-    lazy var pickerViewButton: MyCustomButton = {
+    private lazy var pickerViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "PickerView")
         return button
     }()
     
-    lazy var datePickerButton: MyCustomButton = {
+    private lazy var datePickerButton: MyCustomButton = {
         let button = MyCustomButton(title: "DatePicker")
         return button
     }()
     
-    lazy var segmentedControlButton: MyCustomButton = {
+    private lazy var segmentedControlButton: MyCustomButton = {
         let button = MyCustomButton(title: "SegmentedControl")
         return button
     }()
     
-    lazy var alertControllerButton: MyCustomButton = {
+    private lazy var alertControllerButton: MyCustomButton = {
         let button = MyCustomButton(title: "AlertController")
         return button
     }()
     
-    lazy var activityViewControllerButton: MyCustomButton = {
+    private lazy var activityViewControllerButton: MyCustomButton = {
         let button = MyCustomButton(title: "ActivityViewController")
         return button
     }()
     
-    lazy var webViewButton: MyCustomButton = {
+    private lazy var webViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "WebView")
+        return button
+    }()
+    
+    private lazy var progressViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "ProgressView")
         return button
     }()
     
@@ -89,7 +94,7 @@ class MenuVC: UIViewController {
         title = "Menu"
         view.backgroundColor = .systemBackground
         configureScrollView()
-        configureButtons()
+        configureButtons()        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,6 +104,7 @@ class MenuVC: UIViewController {
                                               height: myStackView.bounds.size.height + 80)
             myStackViewContentSizeKey = true
         }
+        myScrollView.scrollsToBottom(animated: true)
     }
     
     private func configureScrollView() {
@@ -133,7 +139,8 @@ class MenuVC: UIViewController {
             segmentedControlButton,
             alertControllerButton,
             activityViewControllerButton,
-            webViewButton
+            webViewButton,
+            progressViewButton
         ]
         for button in buttons {
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -179,8 +186,11 @@ class MenuVC: UIViewController {
             let navigationVC = UINavigationController(rootViewController: viewController)
             present(navigationVC, animated: true, completion: nil)
             return
+        case progressViewButton: viewController = ProgressViewVC()
         default: break
         }
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
+
+

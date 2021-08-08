@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ImageViewVC: UIViewController {
+final class ImageViewVC: UIViewController {
     
-    let myImageView = UIImageView()
-    let myImage = UIImage(named: "hello")
+    private let myImageView = UIImageView()
+    private let myImage = UIImage(named: "hello")
 
     override func viewDidLoad() {
         super.viewDidLoad()

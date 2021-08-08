@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ActivityViewControllerVC: UIViewController {
+final class ActivityViewControllerVC: UIViewController {
     
-    let shareButton = UIButton()
-    var myActivityViewController: UIActivityViewController? = nil
+    private let shareButton = UIButton()
+    private var myActivityViewController: UIActivityViewController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,10 +7,10 @@
 
 import UIKit
 
-class AlertControllerVC: UIViewController {
+final class AlertControllerVC: UIViewController {
     
-    let alertButton = UIButton()
-    let actionSheetButton = UIButton()
+    private let alertButton = UIButton()
+    private let actionSheetButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()

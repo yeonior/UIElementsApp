@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ButtonVC: UIViewController {
+final class ButtonVC: UIViewController {
     
-    let myButton = UIButton()
+    private let myButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
