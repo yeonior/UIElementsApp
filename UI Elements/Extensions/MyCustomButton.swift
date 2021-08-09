@@ -17,8 +17,11 @@ class MyCustomButton: UIButton {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20.0)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layer.cornerRadius = 15
-        titleLabel?.numberOfLines = 0
+        titleLabel?.numberOfLines = 1
+        titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.minimumScaleFactor = 0.7
         titleLabel?.textAlignment = .center
         
         setTitleColor(.label.withAlphaComponent(1), for: .normal)

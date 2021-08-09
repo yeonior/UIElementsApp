@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProgressViewVC: UIViewController {
+final class ProgressViewVC: UIViewController {
     
     private let myProgressView = UIProgressView()
     private let button: MyCustomButton = {
@@ -30,7 +30,6 @@ class ProgressViewVC: UIViewController {
         
         myProgressView.progressViewStyle = .default
         myProgressView.trackTintColor = .systemGray6
-        myProgressView.progressTintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         myProgressView.setProgress(0.0, animated: false)
         
         view.addSubview(myProgressView)

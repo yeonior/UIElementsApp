@@ -13,6 +13,9 @@
 		A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5A26AED9D2001E39D6 /* MenuVC.swift */; };
 		A21F4A5D26AF0DB6001E39D6 /* ImageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5C26AF0DB6001E39D6 /* ImageViewVC.swift */; };
 		A21F4A6026AF2568001E39D6 /* SwitchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F4A5F26AF2568001E39D6 /* SwitchVC.swift */; };
+		A2422F5C26C1232A00A3BFF4 /* PageViewControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2422F5B26C1232A00A3BFF4 /* PageViewControllerVC.swift */; };
+		A2422F5E26C124CF00A3BFF4 /* PageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2422F5D26C124CF00A3BFF4 /* PageHelper.swift */; };
+		A2422F6126C1287A00A3BFF4 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2422F6026C1287A00A3BFF4 /* PageVC.swift */; };
 		A26A3DEF26B464C20008C590 /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26A3DEE26B464C20008C590 /* DatePickerVC.swift */; };
 		A26F134726BAFF0C004B8B68 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */; };
 		A26F134B26BB0C13004B8B68 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */; };
@@ -41,6 +44,9 @@
 		A21F4A5A26AED9D2001E39D6 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		A21F4A5C26AF0DB6001E39D6 /* ImageViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewVC.swift; sourceTree = "<group>"; };
 		A21F4A5F26AF2568001E39D6 /* SwitchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchVC.swift; sourceTree = "<group>"; };
+		A2422F5B26C1232A00A3BFF4 /* PageViewControllerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerVC.swift; sourceTree = "<group>"; };
+		A2422F5D26C124CF00A3BFF4 /* PageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHelper.swift; sourceTree = "<group>"; };
+		A2422F6026C1287A00A3BFF4 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
 		A26A3DEE26B464C20008C590 /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
 		A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
 		A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
@@ -94,8 +100,26 @@
 				A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */,
 				A276699B26BC59A100FE8746 /* WebViewVC.swift */,
 				A20D179726C0419900C714D8 /* ProgressViewVC.swift */,
+				A2422F6226C145C500A3BFF4 /* PageViewController */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A2422F5F26C124D300A3BFF4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A2422F5D26C124CF00A3BFF4 /* PageHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A2422F6226C145C500A3BFF4 /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A2422F5B26C1232A00A3BFF4 /* PageViewControllerVC.swift */,
+				A2422F6026C1287A00A3BFF4 /* PageVC.swift */,
+			);
+			path = PageViewController;
 			sourceTree = "<group>";
 		};
 		A29C95A1269EB32700488036 = {
@@ -120,6 +144,7 @@
 				A29C95AD269EB32700488036 /* AppDelegate.swift */,
 				A29C95AF269EB32700488036 /* SceneDelegate.swift */,
 				A21F4A5E26AF0DBE001E39D6 /* Controllers */,
+				A2422F5F26C124D300A3BFF4 /* Helpers */,
 				A2BBBDD426B810FA004AC00F /* Extensions */,
 				A2BBBDD926B8338E004AC00F /* Support */,
 			);
@@ -219,10 +244,12 @@
 			files = (
 				A29C95B2269EB32700488036 /* LabelVC.swift in Sources */,
 				A28906E026B0168300034CD1 /* ViewVC.swift in Sources */,
+				A2422F5C26C1232A00A3BFF4 /* PageViewControllerVC.swift in Sources */,
 				A20D179826C0419900C714D8 /* ProgressViewVC.swift in Sources */,
 				A21F4A5D26AF0DB6001E39D6 /* ImageViewVC.swift in Sources */,
 				A29C95AE269EB32700488036 /* AppDelegate.swift in Sources */,
 				A2BBBDDD26B8633F004AC00F /* TextFieldVC.swift in Sources */,
+				A2422F6126C1287A00A3BFF4 /* PageVC.swift in Sources */,
 				A21F4A5926AEB05B001E39D6 /* TextViewVC.swift in Sources */,
 				A2C751CA26C04EC300EBBD23 /* UIScrollView + Extensions.swift in Sources */,
 				A21F4A6026AF2568001E39D6 /* SwitchVC.swift in Sources */,
@@ -237,6 +264,7 @@
 				A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */,
 				A26A3DEF26B464C20008C590 /* DatePickerVC.swift in Sources */,
 				A276699C26BC59A100FE8746 /* WebViewVC.swift in Sources */,
+				A2422F5E26C124CF00A3BFF4 /* PageHelper.swift in Sources */,
 				A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */,
 				A2BBBDD626B81190004AC00F /* ActivityViewControllerVC.swift in Sources */,
 				A2BBBDDB26B846D2004AC00F /* MyCustomActivity.swift in Sources */,
