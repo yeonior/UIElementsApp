@@ -93,6 +93,11 @@ final class MenuVC: UIViewController {
         return button
     }()
     
+    private lazy var tableViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "TableView")
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -146,7 +151,8 @@ final class MenuVC: UIViewController {
             activityViewControllerButton,
             webViewButton,
             progressViewButton,
-            pageViewControllerButton
+            pageViewControllerButton,
+            tableViewButton
         ]
         for button in buttons {
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -194,6 +200,7 @@ final class MenuVC: UIViewController {
             return
         case progressViewButton: viewController = ProgressViewVC()
         case pageViewControllerButton: viewController = PageViewControllerVC()
+        case tableViewButton: viewController = TableViewVC()
         default: break
         }
         navigationController?.pushViewController(viewController, animated: true)
