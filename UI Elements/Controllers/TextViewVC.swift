@@ -14,17 +14,23 @@ final class TextViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // adding observers to adjust for keyboard
+        
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         title = "UITextView"
         view.backgroundColor = .systemBackground
+        view.addSubview(myTextView)
         configureTextView()
     }
     
+    // MARK: - Text view configuring
+    
     private func configureTextView() {
         
+        // attributes
         myTextView.text = "Write something here"
         myTextView.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)        
         myTextView.textAlignment = .center
@@ -33,12 +39,11 @@ final class TextViewVC: UIViewController {
         myTextView.textContainer.lineBreakMode = .byCharWrapping
         myTextView.layer.cornerRadius = 15
         
+        // colors
         myTextView.backgroundColor = .systemGray5
         
-        view.addSubview(myTextView)
-        
+        // constraints
         myTextView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             myTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -47,10 +52,12 @@ final class TextViewVC: UIViewController {
         ])
     }
     
+    // keybord hiding by a tap
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         myTextView.resignFirstResponder()
     }
     
+    // view configuring due to keyboard apperance
     @objc private func adjustForKeyboard(notification: Notification) {
         
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -58,7 +65,7 @@ final class TextViewVC: UIViewController {
         let keyboardHeight = keyboardViewEndFrame.height
         
         if notification.name == UIResponder.keyboardWillShowNotification {
-            self.view.frame.origin.y = (-keyboardHeight + statusBarHeight + navigationBarHeight) / 2
+            self.view.frame.origin.y = (statusBarHeight + navigationBarHeight - keyboardHeight) / 2
         } else {
             self.view.frame.origin.y = .zero
         }

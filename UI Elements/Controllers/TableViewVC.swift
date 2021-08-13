@@ -10,7 +10,7 @@ import UIKit
 final class TableViewVC: UIViewController {
     
     private var myTableView = UITableView()
-    private var myArray = [1, 2, 3, 4, 5]
+    private var myArray = ["🥸", "🤠", "🤩", "🤯", "🤐"]
     private let cellIdentifier = "myCell"
 
     override func viewDidLoad() {
@@ -19,26 +19,38 @@ final class TableViewVC: UIViewController {
         title = "UITableView"
         view.backgroundColor = .systemBackground
         configureTableView()
+        myTableView.delegate = self
+        myTableView.dataSource = self
     }
+    
+    // MARK: - Table view configuring
     
     private func configureTableView() {
         
+        // attributes
         myTableView = UITableView(frame: view.bounds, style: .plain)
         myTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        myTableView.delegate = self
-        myTableView.dataSource = self
+        
+        // color
         myTableView.backgroundColor = .systemBackground
         
+        // adding
         view.addSubview(myTableView)
     }
 }
 
+// MARK: - Table view delegate and data source
+
 extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
     
+    // data source
+    
+    // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myArray.count
     }
     
+    // MARK: Cell configuring
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)

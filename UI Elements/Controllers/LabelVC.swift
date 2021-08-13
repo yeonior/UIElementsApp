@@ -16,11 +16,15 @@ final class LabelVC: UIViewController {
         
         title = "UILabel"
         view.backgroundColor = .systemBackground
+        view.addSubview(myLabel)
         configureLabel()
     }
-
+    
+    // MARK: - Label configuring
+    
     private func configureLabel() {
-
+        
+        // attributes
         myLabel.text = "I'm a label"
         myLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
         myLabel.textAlignment = .center
@@ -29,12 +33,11 @@ final class LabelVC: UIViewController {
         myLabel.clipsToBounds = true
         myLabel.layer.cornerRadius = 15
         
+        // colors
         myLabel.backgroundColor = .systemGray5
-
-        view.addSubview(myLabel)
-
+        
+        // constraints
         myLabel.translatesAutoresizingMaskIntoConstraints = false
-
         NSLayoutConstraint.activate([
             myLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -45,9 +48,9 @@ final class LabelVC: UIViewController {
 }
 
 // another way to implement a label
-
-extension LabelVC {
-    
+//
+//extension LabelVC {
+//
 //    private func configureLabel() {
 //
 //        label.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
@@ -157,4 +160,4 @@ extension LabelVC {
 //                           multiplier: 1.0,
 //                           constant: label.frame.size.height).isActive = true
 //    }
-}
+//}

@@ -14,19 +14,24 @@ final class TextFieldVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // adding observers to adjust for keyboard
+        
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         title = "UITextField"
         view.backgroundColor = .systemBackground
+        view.addSubview(myTextField)
+        myTextField.delegate = self
         configureTextField()
     }
     
+    // MARK: - Text field configuring
+    
     private func configureTextField() {
         
-        myTextField.delegate = self
-        
+        // attributes
         myTextField.borderStyle = .roundedRect
         myTextField.placeholder = "Write something here"
         myTextField.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20.0)
@@ -35,10 +40,8 @@ final class TextFieldVC: UIViewController {
         myTextField.keyboardType = .emailAddress
         myTextField.returnKeyType = .done
         
-        view.addSubview(myTextField)
-        
+        // constraints
         myTextField.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             myTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -46,10 +49,12 @@ final class TextFieldVC: UIViewController {
         ])
     }
     
+    // keybord hiding by a tap
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         myTextField.resignFirstResponder()
     }
     
+    // view configuring due to keyboard apperance
     @objc private func adjustForKeyboard(notification: Notification) {
         
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -64,16 +69,21 @@ final class TextFieldVC: UIViewController {
     }
 }
 
+// MARK: - Text field delegate
+
 extension TextFieldVC: UITextFieldDelegate {
     
+    // editing begin
     func textFieldDidBeginEditing(_ textField: UITextField) {
         view.backgroundColor = .systemGray3
     }
     
+    // editing end
     func textFieldDidEndEditing(_ textField: UITextField) {
         view.backgroundColor = .systemBackground
     }
     
+    // keybord hiding by a return (done) button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         myTextField.resignFirstResponder()
         return true

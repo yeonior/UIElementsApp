@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-final class WebViewVC: UIViewController, WKNavigationDelegate {
+final class WebViewVC: UIViewController {
     
     private var myWebView: WKWebView!
 
@@ -16,31 +16,37 @@ final class WebViewVC: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         configureWebView()
-        
-        if let url = URL(string: "https://yandex.ru") {
-            let urlRequest = URLRequest(url: url)
-            myWebView.load(urlRequest)
-        }
+        myWebView.navigationDelegate = self
+        loadWebContent(from: "httpss://yandex.ru")
     }
+    
+    // MARK: - Web view configuring
     
     private func configureWebView() {
         
+        // preferences and configuration
         let preferences = WKWebpagePreferences()
         preferences.allowsContentJavaScript = true
         let configuration = WKWebViewConfiguration()
         configuration.defaultWebpagePreferences = preferences
+        
+        // attrubutes
         myWebView = WKWebView(frame: view.bounds, configuration: configuration)
-        myWebView.backgroundColor = .systemBackground
-        myWebView.navigationDelegate = self
         myWebView.allowsBackForwardNavigationGestures = true
         
+        // color
+        myWebView.backgroundColor = .systemBackground
+        
+        // bar buttons
         let refreshBarButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: myWebView, action: #selector(myWebView.reload))
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(_:)))
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidTouchUpInside))
         navigationItem.leftBarButtonItem = refreshBarButton
         navigationItem.rightBarButtonItem = doneBarButton
         
+        // adding
         view.addSubview(myWebView)
         
+        // constraints
         myWebView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             myWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
@@ -50,10 +56,24 @@ final class WebViewVC: UIViewController, WKNavigationDelegate {
         ])
     }
     
-    @objc private func doneButtonTapped(_ sender: UIBarButtonItem) {
+    // dismissing the web view
+    @objc private func doneButtonDidTouchUpInside() {
         dismiss(animated: true, completion: nil)
     }
     
+    // loading web content from specify URL
+    private func loadWebContent(from URLString: String) {
+        guard let url = URL(string: URLString) else { return }
+        let urlRequest = URLRequest(url: url)
+        myWebView.load(urlRequest)
+    }
+}
+
+// MARK: - Web view navigation delegate
+
+extension WebViewVC: WKNavigationDelegate {
+    
+    // action after page is fully loaded
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
     }

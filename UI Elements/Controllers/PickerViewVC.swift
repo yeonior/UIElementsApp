@@ -10,8 +10,7 @@ import UIKit
 final class PickerViewVC: UIViewController {
     
     private let myPickerView = UIPickerView()
-    
-    private var rgb: (CGFloat, CGFloat, CGFloat) = (0.9, 0.8, 0.7) {
+    private lazy var rgb: (CGFloat, CGFloat, CGFloat) = (0.9, 0.8, 0.7) {
         didSet {
             view.backgroundColor = backgroundColor
         }
@@ -40,27 +39,30 @@ final class PickerViewVC: UIViewController {
         
         title = "UIPickerView"
         view.backgroundColor = backgroundColor
+        view.addSubview(myPickerView)
+        myPickerView.dataSource = self
+        myPickerView.delegate = self
         configurePickerView()
     }
     
+    // MARK: - Picker view configuring
+    
     private func configurePickerView() {
         
-        myPickerView.dataSource = self
-        myPickerView.delegate = self
-        
+        // attributes
         myPickerView.selectRow(9, inComponent: 0, animated: true)
         myPickerView.selectRow(8, inComponent: 1, animated: true)
         myPickerView.selectRow(7, inComponent: 2, animated: true)
-        
-        myPickerView.backgroundColor = .systemGray5
         myPickerView.layer.cornerRadius = 15
+        
+        // colors
+        myPickerView.backgroundColor = .systemGray5
+        
 //        let dict = [0:label1, 1:label2, 2:label3]
 //        myPickerView.setPickerLabels(labels: dict)
         
-        view.addSubview(myPickerView)
-        
+        // constraints
         myPickerView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             myPickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myPickerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -70,14 +72,21 @@ final class PickerViewVC: UIViewController {
     }
 }
 
-extension PickerViewVC: UIPickerViewDataSource, UIPickerViewDelegate {
+// MARK: - Picker view delegate and data source
+
+extension PickerViewVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
+    // data source
+    
+    // number of components
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
     
+    // number of rows in component
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 11
+        
 //        switch component {
 //        case 0, 2, 4:
 //            return 1
@@ -88,6 +97,9 @@ extension PickerViewVC: UIPickerViewDataSource, UIPickerViewDelegate {
 //        }
     }
     
+    // delegate
+    
+    // title for each row in each component
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if row == 10 {
@@ -118,6 +130,7 @@ extension PickerViewVC: UIPickerViewDataSource, UIPickerViewDelegate {
 //        }
     }
     
+    // action after the user selects a row in a component
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
         switch component {

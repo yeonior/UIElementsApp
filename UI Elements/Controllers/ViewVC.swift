@@ -16,18 +16,20 @@ final class ViewVC: UIViewController {
         
         title = "UIView"
         view.backgroundColor = .systemBackground
+        view.addSubview(myView)
         configureView()
     }
     
+    // MARK: - View configuring
+    
     private func configureView() {
         
+        // attributes
         myView.backgroundColor = .systemGray5
         myView.layer.cornerRadius = 15
         
-        view.addSubview(myView)
-        
+        // constraints
         myView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             myView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

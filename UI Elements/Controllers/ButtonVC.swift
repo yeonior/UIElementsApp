@@ -16,11 +16,15 @@ final class ButtonVC: UIViewController {
         
         title = "UIButton"
         view.backgroundColor = .white
+        view.addSubview(myButton)
         configureButton()
     }
     
+    // MARK: - Button configuring
+    
     private func configureButton() {
         
+        // attributes
         myButton.setTitle("Press me", for: .normal)
         myButton.setTitle("Now release me", for: .highlighted)
         myButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
@@ -28,17 +32,17 @@ final class ButtonVC: UIViewController {
         myButton.titleLabel?.numberOfLines = 0
         myButton.titleLabel?.textAlignment = .center
         
+        // colors
         myButton.setTitleColor(.label.withAlphaComponent(1), for: .normal)
         myButton.setTitleColor(.label.withAlphaComponent(0.2), for: .highlighted)
         myButton.backgroundColor = .systemGray5
         
-        myButton.addTarget(self, action: #selector(touchedDown(_:)), for: .touchDown)
-        myButton.addTarget(self, action: #selector(touchedUpInside(_:)), for: .touchUpInside)
+        // adding actions
+        myButton.addTarget(self, action: #selector(buttonDidTouchDown(_:)), for: .touchDown)
+        myButton.addTarget(self, action: #selector(buttonDidTouchUpInside(_:)), for: .touchUpInside)
         
-        view.addSubview(myButton)
-        
+        // constraints
         myButton.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -47,12 +51,14 @@ final class ButtonVC: UIViewController {
         ])
     }
     
-    @objc private func touchedDown(_ sender: UIButton) {
+    // button actions
+    
+    @objc private func buttonDidTouchDown(_ sender: UIButton) {
         guard sender == myButton else { return }
         view.backgroundColor = .black
     }
     
-    @objc private func touchedUpInside(_ sender: UIButton) {
+    @objc private func buttonDidTouchUpInside(_ sender: UIButton) {
         guard sender == myButton else { return }
         view.backgroundColor = .white
     }

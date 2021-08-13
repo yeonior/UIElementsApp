@@ -22,18 +22,24 @@ final class ProgressViewVC: UIViewController {
 
         title = "UIProgressView"
         view.backgroundColor = .systemBackground
+        view.addSubview(myProgressView)
+        view.addSubview(button)
         configureProgressView()
         configureButton()
     }
     
+    // MARK: - Progress view configuring
+    
     private func configureProgressView() {
         
+        // attributes
         myProgressView.progressViewStyle = .default
-        myProgressView.trackTintColor = .systemGray6
         myProgressView.setProgress(0.0, animated: false)
         
-        view.addSubview(myProgressView)
+        // color
+        myProgressView.trackTintColor = .systemGray6
         
+        // constraints
         myProgressView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             myProgressView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -43,12 +49,14 @@ final class ProgressViewVC: UIViewController {
         ])
     }
     
+    // MARK: - Button configuring
+    
     private func configureButton() {
         
-        button.addTarget(self, action: #selector(startProgress(_:)), for: .touchUpInside)
+        // action
+        button.addTarget(self, action: #selector(buttonDidTouchUpInside(_:)), for: .touchUpInside)
         
-        view.addSubview(button)
-        
+        // constraints
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -58,10 +66,12 @@ final class ProgressViewVC: UIViewController {
         ])
     }
     
-    @objc private func startProgress(_ button: UIButton) {
+    // starting the fake loading
+    @objc private func buttonDidTouchUpInside(_ button: UIButton) {
         
         myProgressView.progressTintColor = UIColor.random
         
+        // MARK: Timer configuring
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: #selector(updateProgressView),
@@ -73,6 +83,7 @@ final class ProgressViewVC: UIViewController {
         button.isUserInteractionEnabled = false
     }
     
+    // updating progress
     @objc private func updateProgressView() {
         
         if myProgressView.progress != 1.0 {

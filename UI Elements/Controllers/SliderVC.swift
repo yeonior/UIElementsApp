@@ -22,24 +22,26 @@ final class SliderVC: UIViewController {
         super.viewDidLoad()
         
         title = "UISlider"
+        view.addSubview(firstView)
+        view.addSubview(secondView)
+        secondView.addSubview(mySlider)
         configureViews()
         configureSlider()
     }
     
+    // MARK: Views configuring
+    
     private func configureViews() {
         
+        // colors
         view.backgroundColor = .black
         firstView.backgroundColor = .white
+        firstView.alpha = firstViewAlpha
         secondView.backgroundColor = .clear
         
-        firstView.alpha = firstViewAlpha
-        
-        view.addSubview(firstView)
-        view.addSubview(secondView)
+        // constraints
         
         firstView.translatesAutoresizingMaskIntoConstraints = false
-        secondView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             firstView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             firstView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -47,6 +49,7 @@ final class SliderVC: UIViewController {
             firstView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        secondView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             secondView.leadingAnchor.constraint(equalTo: firstView.leadingAnchor),
             secondView.trailingAnchor.constraint(equalTo: firstView.trailingAnchor),
@@ -55,18 +58,20 @@ final class SliderVC: UIViewController {
         ])
     }
     
+    // MARK: - Slider configuring
+    
     private func configureSlider() {
         
+        // attributes
         mySlider.minimumValue = 0.0
         mySlider.maximumValue = 1.0
         mySlider.value = Float(firstViewAlpha)
         
+        // adding action
         mySlider.addTarget(self, action: #selector(sliderValueDidChange(_:)), for: .valueChanged)
         
-        secondView.addSubview(mySlider)
-        
+        // constraints
         mySlider.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             mySlider.centerXAnchor.constraint(equalTo: secondView.centerXAnchor),
             mySlider.centerYAnchor.constraint(equalTo: secondView.centerYAnchor),
@@ -74,6 +79,7 @@ final class SliderVC: UIViewController {
         ])
     }
     
+    // slider action
     @objc private func sliderValueDidChange(_ sender: UISlider) {
         guard sender == mySlider else { return }
         firstViewAlpha = CGFloat(mySlider.value)

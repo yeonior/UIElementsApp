@@ -17,29 +17,35 @@ final class SegmentedControlVC: UIViewController {
         title = "UISegmentedControl"
         view.backgroundColor = .systemBackground
         cofigureSegmentedControl()
+        
     }
+    
+    // MARK: - Segmented control configuring
     
     private func cofigureSegmentedControl() {
         
+        // attributes
         let titleNamesArray = ["#1", "#2", "#3", "#4", "#5", "#6", "#7"]
         mySegmentedControl = UISegmentedControl(items: titleNamesArray)
         mySegmentedControl.selectedSegmentIndex = 0
-        segmentedControlDidChange(mySegmentedControl)
-        mySegmentedControl.addTarget(self, action: #selector(segmentedControlDidChange(_:)), for: .valueChanged)
+        segmentDidSelect(mySegmentedControl)
+        mySegmentedControl.addTarget(self, action: #selector(segmentDidSelect(_:)), for: .valueChanged)
         
+        // adding
         view.addSubview(mySegmentedControl)
         
+        // constraints
         mySegmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             mySegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mySegmentedControl.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
-    @objc private func segmentedControlDidChange(_ sender: UISegmentedControl) {
-        
+    // segmented control action
+    @objc private func segmentDidSelect(_ sender: UISegmentedControl) {
         guard sender == mySegmentedControl else { return }
+        
         switch sender.selectedSegmentIndex {
         case 1:
             view.backgroundColor = .systemGray6

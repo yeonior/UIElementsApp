@@ -17,22 +17,25 @@ final class ImageViewVC: UIViewController {
         
         title = "UIImageView"
         view.backgroundColor = .systemBackground
+        view.addSubview(myImageView)
         configureImageView()
     }
     
+    // MARK: - Image view configuring
+    
     private func configureImageView() {
         
+        // attributes
         myImageView.image = myImage
         myImageView.contentMode = .scaleAspectFill
         myImageView.layer.cornerRadius = 15
         myImageView.clipsToBounds = true
-
+        
+        // colors
         myImageView.backgroundColor = .systemGray5
         
-        view.addSubview(myImageView)
-        
+        // constraints
         myImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             myImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

@@ -22,10 +22,12 @@ final class PageViewControllerVC: UIPageViewController {
         super.viewDidLoad()
         
         configurePages()
-        configurePageVCIndicator()
+        configurePageIndicator()
     }
     
-        override init(transitionStyle style: UIPageViewController.TransitionStyle,
+    // MARK: - Page view controller configuring
+    
+    override init(transitionStyle style: UIPageViewController.TransitionStyle,
                   navigationOrientation: UIPageViewController.NavigationOrientation,
                   options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll,
@@ -43,6 +45,8 @@ final class PageViewControllerVC: UIPageViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Pages configruing
+    
     private func configurePages() {
         
         let firstPage = PageHelper(emoji: "👋", description: "Hello there! \n \nHere you can learn a little bit about PageViewController! \n \nSwipe left to go to the next page.")
@@ -52,13 +56,17 @@ final class PageViewControllerVC: UIPageViewController {
         pages = [firstPage, secondPage, thirdPage, fourthPage]
     }
     
-    private func configurePageVCIndicator() {
+    // MARK: - Page indicator configuring
+    
+    private func configurePageIndicator() {
         let indicatorAppearance = UIPageControl.appearance()
         indicatorAppearance.currentPageIndicatorTintColor = .label
         indicatorAppearance.pageIndicatorTintColor = .gray.withAlphaComponent(0.5)
         indicatorAppearance.backgroundColor = .clear
     }
 }
+
+// MARK: - Page view controller delegate and datasource
 
 extension PageViewControllerVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     

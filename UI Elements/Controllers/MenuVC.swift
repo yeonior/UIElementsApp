@@ -13,6 +13,8 @@ final class MenuVC: UIViewController {
     private lazy var myStackView = UIStackView()
     private var myStackViewContentSizeKey = false
     
+    // buttons
+    
     private lazy var viewButton: MyCustomButton = {
         let button = MyCustomButton(title: "View")
         return button
@@ -103,27 +105,30 @@ final class MenuVC: UIViewController {
         
         title = "Menu"
         view.backgroundColor = .systemBackground
+        view.addSubview(myScrollView)
         configureScrollView()
         configureButtons()        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
+        // makes scroll view's content size bigger and fixes it
         if !myStackViewContentSizeKey {
             myScrollView.contentSize = CGSize(width: view.bounds.size.width,
                                               height: myStackView.bounds.size.height + 80)
             myStackViewContentSizeKey = true
         }
-        myScrollView.scrollsToBottom(animated: true)
+//        myScrollView.scrollsToBottom(animated: true)
     }
+    
+    // MARK: - Scroll view configuring
     
     private func configureScrollView() {
         
         myScrollView.bounds = view.bounds
         myScrollView.backgroundColor = .systemBackground
         
-        view.addSubview(myScrollView)
-        
+        // constraints
         myScrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             myScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
@@ -132,6 +137,8 @@ final class MenuVC: UIViewController {
             myScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
+    
+    // MARK: - Buttons configuring
     
     private func configureButtons() {
         
@@ -154,19 +161,27 @@ final class MenuVC: UIViewController {
             pageViewControllerButton,
             tableViewButton
         ]
+        
         for button in buttons {
+            
+            // action
+            button.addTarget(self, action: #selector(buttonDidTouchUpInside(_:)), for: .touchUpInside)
+            
+            // constraints
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: 52).isActive = true
-            button.addTarget(self, action: #selector(pushVC(_:)), for: .touchUpInside)
         }
         
+        // stack view configuring
         myStackView = UIStackView(arrangedSubviews: buttons)
         myStackView.axis = .vertical
         myStackView.distribution = .fillEqually
         myStackView.spacing = 10
         
+        // adding the stack view
         myScrollView.addSubview(myStackView)
         
+        // constraints
         myStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             myStackView.centerXAnchor.constraint(equalTo: myScrollView.centerXAnchor),
@@ -175,7 +190,8 @@ final class MenuVC: UIViewController {
         ])
     }
     
-    @objc private func pushVC(_ sender: UIButton) {
+    // pushing a specific view controller
+    @objc private func buttonDidTouchUpInside(_ sender: UIButton) {
         
         var viewController = UIViewController()
         

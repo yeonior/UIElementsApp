@@ -17,25 +17,30 @@ final class ActivityViewControllerVC: UIViewController {
         
         title = "UIActivityViewController"
         view.backgroundColor = .systemBackground
+        view.addSubview(shareButton)
         configureButton()
     }
     
+    // MARK: - Button configuring
+    
     private func configureButton() {
         
+        // attributes
         let image = UIImage(systemName: "square.and.arrow.up")
         shareButton.setImage(image, for: .normal)
         shareButton.imageView?.contentMode = .scaleAspectFit
         shareButton.contentVerticalAlignment = .fill
         shareButton.contentHorizontalAlignment = .fill
 //        shareButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        // color
         shareButton.backgroundColor = .clear
         
-        shareButton.addTarget(self, action: #selector(showActivityViewController(_:)), for: .touchUpInside)
+        // action
+        shareButton.addTarget(self, action: #selector(buttonDidTouchUpInside(_:)), for: .touchUpInside)
         
-        view.addSubview(shareButton)
-        
+        // constraints
         shareButton.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             shareButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             shareButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -44,10 +49,13 @@ final class ActivityViewControllerVC: UIViewController {
         ])
     }
     
-    @objc private func showActivityViewController(_ sender: UIButton) {
-        
+    // activity view controller creation
+    @objc private func buttonDidTouchUpInside(_ sender: UIButton) {
         guard sender == shareButton else { return }
         
+        // MARK: Activity view controller configuring
+        
+        // custom activity
         let activity = MyCustomActivity(title: "Change background color",
                                         image: UIImage(systemName: "wand.and.stars.inverse")) { [unowned self] _ in
             
