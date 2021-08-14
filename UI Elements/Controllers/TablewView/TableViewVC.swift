@@ -13,24 +13,20 @@ final class TableViewVC: UIViewController {
     private let cellIdentifier = "myCell"
     
     private var emoji = [
-        Emoji(emoji: "🥸", description: "Disquised Face", isFavourite: false),
-        Emoji(emoji: "🤠", description: "Cowboy Hat Face", isFavourite: false),
-        Emoji(emoji: "🤯", description: "Exploding Head", isFavourite: false)
+        Emoji(emoji: "🥸", description: "Disquised Face", symbol: "face.smiling", isFavourite: false),
+        Emoji(emoji: "🤠", description: "Cowboy Hat Face", symbol: "face.smiling", isFavourite: false),
+        Emoji(emoji: "🤯", description: "Exploding Head", symbol: "face.smiling", isFavourite: false)
     ]
     private var flags = [
-        Emoji(emoji: "🇨🇦", description: "Canada", isFavourite: false),
-        Emoji(emoji: "🇨🇿", description: "Czech Republic", isFavourite: false),
-        Emoji(emoji: "🇯🇵", description: "Japan", isFavourite: false)
+        Emoji(emoji: "🇨🇦", description: "Canada", symbol: "flag", isFavourite: false),
+        Emoji(emoji: "🇨🇿", description: "Czech Republic", symbol: "flag", isFavourite: false),
+        Emoji(emoji: "🇯🇵", description: "Japan", symbol: "flag", isFavourite: false)
     ]
     private var weather = [
-        Emoji(emoji: "☀️", description: "Clear sky", isFavourite: false),
-        Emoji(emoji: "🌧", description: "Rain", isFavourite: false),
-        Emoji(emoji: "🌨", description: "Snow", isFavourite: false)
+        Emoji(emoji: "☀️", description: "Clear sky", symbol: "cloud", isFavourite: false),
+        Emoji(emoji: "🌧", description: "Rain", symbol: "cloud", isFavourite: false),
+        Emoji(emoji: "🌨", description: "Snow", symbol: "cloud", isFavourite: false)
     ]
-    
-    private var emojiSymbolString = "face.smiling"
-    private var flagSymbolString = "flag"
-    private var weatherSymbolString = "cloud"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,19 +47,40 @@ final class TableViewVC: UIViewController {
         myTableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         myTableView.tableFooterView = UIView()
         
+        // bar button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(editAction(_:)))
+        
         // color
         myTableView.backgroundColor = .systemBackground
         
         // adding
         view.addSubview(myTableView)
     }
+    
+    // enable table editing mode
+    @objc private func editAction(_ sender: UIBarButtonItem) {
+        guard sender == navigationItem.rightBarButtonItem else { return }
+        
+        if myTableView.isEditing {
+            sender.title = "Edit"
+            sender.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 17)], for: .normal)
+            myTableView.isEditing.toggle()
+        } else {
+            sender.title = "Done"
+            sender.setTitleTextAttributes([.font : UIFont.boldSystemFont(ofSize: 17)], for: .normal)
+            myTableView.isEditing.toggle()
+        }
+    }
 }
 
-// MARK: - Table view delegate and data source
+// MARK: - Extensions
 
 extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
     
-    // data source
+    // MARK: - Data source
     
     // number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -80,7 +97,7 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // MARK: Cell configuring
+    // cells configuring
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
@@ -88,13 +105,13 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = String(emoji[indexPath.row].description)
-            cell.imageView?.image = UIImage(systemName: emojiSymbolString)
+            cell.imageView?.image = UIImage(systemName: emoji[indexPath.row].symbol)
         case 1:
             cell.textLabel?.text = String(flags[indexPath.row].description)
-            cell.imageView?.image = UIImage(systemName: flagSymbolString)
+            cell.imageView?.image = UIImage(systemName: flags[indexPath.row].symbol)
         case 2:
             cell.textLabel?.text = String(weather[indexPath.row].description)
-            cell.imageView?.image = UIImage(systemName: weatherSymbolString)
+            cell.imageView?.image = UIImage(systemName: weather[indexPath.row].symbol)
         default:
             break
         }
@@ -107,6 +124,7 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
     
     // header title
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         switch section {
         case 0: return "Emoji"
         case 1: return "Flags"
@@ -115,7 +133,39 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // delegate
+    // permission to move rows
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // moving rows
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        var object = Emoji(emoji: "🚫", description: "N/A", symbol: "nosign", isFavourite: false)
+        
+        switch sourceIndexPath.section {
+        case 0:
+            if destinationIndexPath.row < emoji.endIndex {
+                object = emoji.remove(at: sourceIndexPath.row)
+                emoji.insert(object, at: destinationIndexPath.row)
+            }
+        case 1:
+            if destinationIndexPath.row < flags.endIndex {
+                object = flags.remove(at: sourceIndexPath.row)
+                flags.insert(object, at: destinationIndexPath.row)
+            }
+        case 2:
+            if destinationIndexPath.row < weather.endIndex {
+                object = weather.remove(at: sourceIndexPath.row)
+                weather.insert(object, at: destinationIndexPath.row)
+            }
+        default:
+            break
+        }
+        tableView.reloadData()
+    }
+    
+    // MARK: - Delegate
     
     // row height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -151,7 +201,7 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
     // leading swipe actions
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        var object = Emoji(emoji: "🚫", description: "N/A", isFavourite: false)
+        var object = Emoji(emoji: "🚫", description: "N/A", symbol: "nosign", isFavourite: false)
         
         switch indexPath.section {
         case 0: object = emoji[indexPath.row]
@@ -164,31 +214,27 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
         // making cell favourite
         let favouriteAction = UIContextualAction(style: .normal, title: "Favourite") { [unowned self] _, _, completion in
             
-            var symbolString: String? = "nosign"
-            var newSymbolString: String? = "nosign"
+//            let symbolString = object.symbol
+//            let newSymbolString = object.symbol + ".fill"
             
             switch indexPath.section {
             case 0:
-                symbolString = self.emojiSymbolString
-                newSymbolString = self.emojiSymbolString + ".fill"
                 object.isFavourite.toggle()
+                object.symbol = object.isFavourite ? "face.smiling.fill" : "face.smiling"
                 emoji[indexPath.row] = object
             case 1:
-                symbolString = self.flagSymbolString
-                newSymbolString = self.flagSymbolString + ".fill"
                 object.isFavourite.toggle()
+                object.symbol = object.isFavourite ? "flag.fill" : "flag"
                 flags[indexPath.row] = object
             case 2:
-                symbolString = self.weatherSymbolString
-                newSymbolString = self.weatherSymbolString + ".fill"
                 object.isFavourite.toggle()
+                object.symbol = object.isFavourite ? "cloud.fill" : "cloud"
                 weather[indexPath.row] = object
             default:
                 break
             }
             
-            guard let symbolString = symbolString, let newSymbolString = newSymbolString else { return }
-            tableView.cellForRow(at: indexPath)?.imageView?.image = object.isFavourite ? UIImage(systemName: newSymbolString) : UIImage(systemName: symbolString)
+            tableView.cellForRow(at: indexPath)?.imageView?.image = UIImage(systemName: object.symbol)
             
             completion(true)
         }
