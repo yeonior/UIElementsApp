@@ -25,7 +25,7 @@ final class PageViewControllerVC: UIPageViewController {
         configurePageIndicator()
     }
     
-    // MARK: - Page view controller configuring
+    // MARK: - Page view controller configuring (init)
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle,
                   navigationOrientation: UIPageViewController.NavigationOrientation,
@@ -33,12 +33,11 @@ final class PageViewControllerVC: UIPageViewController {
         super.init(transitionStyle: .scroll,
                    navigationOrientation: navigationOrientation,
                    options: nil)
+        dataSource = self
         
         title = "UIPageViewController"
         view.backgroundColor = .systemBackground
         setViewControllers([pageViewControllers[0]], direction: .forward, animated: true, completion: nil)
-        delegate = self
-        dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -66,13 +65,14 @@ final class PageViewControllerVC: UIPageViewController {
     }
 }
 
-// MARK: - Page view controller delegate and datasource
+// MARK: - Page view controller datasource
 
-extension PageViewControllerVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+extension PageViewControllerVC: UIPageViewControllerDataSource {
     
+    // view controller before the given one
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
         guard let vc = viewController as? PageVC else { return nil }
+        
         if let index = pageViewControllers.firstIndex(of: vc) {
             if index > 0 {
                 return pageViewControllers[index - 1]
@@ -84,9 +84,10 @@ extension PageViewControllerVC: UIPageViewControllerDelegate, UIPageViewControll
         return nil
     }
     
+    // view controller after the given one
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
         guard let vc = viewController as? PageVC else { return nil }
+        
         if let index = pageViewControllers.firstIndex(of: vc) {
             if index < pageViewControllers.count - 1 {
                 return pageViewControllers[index + 1]
@@ -98,10 +99,12 @@ extension PageViewControllerVC: UIPageViewControllerDelegate, UIPageViewControll
         return nil
     }
     
+    // number of pages reflecting in the page indicator
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         pageViewControllers.count
     }
     
+    // the current page index reflecting in the page indicator
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         0
     }

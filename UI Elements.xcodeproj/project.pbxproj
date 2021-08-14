@@ -36,6 +36,7 @@
 		A2C751CA26C04EC300EBBD23 /* UIScrollView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C751C926C04EC300EBBD23 /* UIScrollView + Extensions.swift */; };
 		A2DDC21026B56E640059262D /* SegmentedControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */; };
 		A2F027D826A1E62300056367 /* ButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F027D726A1E62300056367 /* ButtonVC.swift */; };
+		A2F1A6DE26C7F1A100E144D9 /* EmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1A6DD26C7F1A100E144D9 /* EmojiModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		A2C751C926C04EC300EBBD23 /* UIScrollView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Extensions.swift"; sourceTree = "<group>"; };
 		A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlVC.swift; sourceTree = "<group>"; };
 		A2F027D726A1E62300056367 /* ButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC.swift; sourceTree = "<group>"; };
+		A2F1A6DD26C7F1A100E144D9 /* EmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,17 +105,9 @@
 				A276699B26BC59A100FE8746 /* WebViewVC.swift */,
 				A20D179726C0419900C714D8 /* ProgressViewVC.swift */,
 				A2422F6226C145C500A3BFF4 /* PageViewController */,
-				A2B6524126C29FF2007F1C6D /* TableViewVC.swift */,
+				A2F1A6DA26C7EC8C00E144D9 /* TablewView */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		A2422F5F26C124D300A3BFF4 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				A2422F5D26C124CF00A3BFF4 /* PageHelper.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		A2422F6226C145C500A3BFF4 /* PageViewController */ = {
@@ -121,6 +115,7 @@
 			children = (
 				A2422F5B26C1232A00A3BFF4 /* PageViewControllerVC.swift */,
 				A2422F6026C1287A00A3BFF4 /* PageVC.swift */,
+				A2422F5D26C124CF00A3BFF4 /* PageHelper.swift */,
 			);
 			path = PageViewController;
 			sourceTree = "<group>";
@@ -147,7 +142,6 @@
 				A29C95AD269EB32700488036 /* AppDelegate.swift */,
 				A29C95AF269EB32700488036 /* SceneDelegate.swift */,
 				A21F4A5E26AF0DBE001E39D6 /* Controllers */,
-				A2422F5F26C124D300A3BFF4 /* Helpers */,
 				A2BBBDD426B810FA004AC00F /* Extensions */,
 				A2BBBDD926B8338E004AC00F /* Support */,
 			);
@@ -174,6 +168,15 @@
 				A29C95BB269EB32800488036 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		A2F1A6DA26C7EC8C00E144D9 /* TablewView */ = {
+			isa = PBXGroup;
+			children = (
+				A2B6524126C29FF2007F1C6D /* TableViewVC.swift */,
+				A2F1A6DD26C7F1A100E144D9 /* EmojiModel.swift */,
+			);
+			path = TablewView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2F1A6DE26C7F1A100E144D9 /* EmojiModel.swift in Sources */,
 				A29C95B2269EB32700488036 /* LabelVC.swift in Sources */,
 				A28906E026B0168300034CD1 /* ViewVC.swift in Sources */,
 				A2422F5C26C1232A00A3BFF4 /* PageViewControllerVC.swift in Sources */,

@@ -8,7 +8,8 @@
 import UIKit
 
 final class PageVC: UIViewController {
-
+    
+    // MARK: Emoji label configuring
     private let emojiLabel: UILabel = {
         let emoji = UILabel()
         emoji.font = UIFont.systemFont(ofSize: 150)
@@ -18,6 +19,7 @@ final class PageVC: UIViewController {
         return emoji
     }()
     
+    // MARK: Description label configuring
     private let descriptionLabel: UILabel = {
         let description = UILabel()
         description.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
@@ -28,15 +30,21 @@ final class PageVC: UIViewController {
         return description
     }()
     
-    lazy var subView = [emojiLabel, descriptionLabel]
+    lazy private var subView = [emojiLabel, descriptionLabel]
+    
+    // MARK: - Page configuring (init)
     
     init(page: PageHelper) {
         super.init(nibName: nil, bundle: nil)
         
+        // init labels
         emojiLabel.text = page.emoji
         descriptionLabel.text = page.description
         
+        // color
         view.backgroundColor = .systemBackground
+        
+        // adding and constraints
         
         for view in subView {
             self.view.addSubview(view)
@@ -59,6 +67,5 @@ final class PageVC: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
+    }    
 }

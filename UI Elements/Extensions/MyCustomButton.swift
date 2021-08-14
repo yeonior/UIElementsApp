@@ -15,6 +15,8 @@ class MyCustomButton: UIButton {
     
     init(title: String) {
         super.init(frame: .zero)
+        
+        // attributes
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20.0)
         contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -24,6 +26,7 @@ class MyCustomButton: UIButton {
         titleLabel?.minimumScaleFactor = 0.7
         titleLabel?.textAlignment = .center
         
+        // colors
         setTitleColor(.label.withAlphaComponent(1), for: .normal)
         setTitleColor(.label.withAlphaComponent(0.2), for: .highlighted)
         backgroundColor = #colorLiteral(red: 0.7764705882, green: 0.862745098, blue: 0.862745098, alpha: 1).withAlphaComponent(0.5)

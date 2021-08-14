@@ -112,13 +112,13 @@ final class MenuVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        // makes scroll view's content size bigger and fixes it
+        // makes scroll view's content size bigger and pin it
         if !myStackViewContentSizeKey {
             myScrollView.contentSize = CGSize(width: view.bounds.size.width,
                                               height: myStackView.bounds.size.height + 80)
             myStackViewContentSizeKey = true
         }
-//        myScrollView.scrollsToBottom(animated: true)
+        myScrollView.scrollsToBottom(animated: true)
     }
     
     // MARK: - Scroll view configuring

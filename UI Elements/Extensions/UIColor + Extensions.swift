@@ -9,6 +9,7 @@ import UIKit
 
 extension UIColor {
     
+    // makes random color
     static var random: UIColor {
         return UIColor(red: .random(in: 0...1),
                        green: .random(in: 0...1),

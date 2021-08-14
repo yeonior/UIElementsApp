@@ -17,7 +17,7 @@ final class WebViewVC: UIViewController {
         
         configureWebView()
         myWebView.navigationDelegate = self
-        loadWebContent(from: "httpss://yandex.ru")
+        loadWebContent(from: "https://yandex.ru")
     }
     
     // MARK: - Web view configuring
