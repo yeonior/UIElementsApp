@@ -42,7 +42,7 @@ final class TableViewVC: UIViewController {
     
     private func configureTableView() {
         
-        myTableView = UITableView(frame: view.bounds, style: .plain)
+        myTableView = UITableView(frame: view.bounds, style: .grouped)
         myTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         myTableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         myTableView.tableFooterView = UIView()
@@ -54,7 +54,7 @@ final class TableViewVC: UIViewController {
                                                             action: #selector(editAction(_:)))
         
         // color
-        myTableView.backgroundColor = .systemBackground
+        myTableView.backgroundColor = .systemGroupedBackground
         
         // adding
         view.addSubview(myTableView)
@@ -271,5 +271,10 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
         deleteAction.image = UIImage(systemName: "trash")
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    // reducing the space between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 1 : 18
     }
 }
