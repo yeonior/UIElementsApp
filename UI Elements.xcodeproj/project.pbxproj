@@ -34,6 +34,8 @@
 		A2BBBDDB26B846D2004AC00F /* MyCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */; };
 		A2BBBDDD26B8633F004AC00F /* TextFieldVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDDC26B8633F004AC00F /* TextFieldVC.swift */; };
 		A2C751CA26C04EC300EBBD23 /* UIScrollView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C751C926C04EC300EBBD23 /* UIScrollView + Extensions.swift */; };
+		A2D9621026C93F7E008FF2B6 /* TableViewControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9620F26C93F7E008FF2B6 /* TableViewControllerVC.swift */; };
+		A2D9621526C96126008FF2B6 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9621426C96126008FF2B6 /* ItemModel.swift */; };
 		A2DDC21026B56E640059262D /* SegmentedControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */; };
 		A2F027D826A1E62300056367 /* ButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F027D726A1E62300056367 /* ButtonVC.swift */; };
 		A2F1A6DE26C7F1A100E144D9 /* EmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1A6DD26C7F1A100E144D9 /* EmojiModel.swift */; };
@@ -69,6 +71,8 @@
 		A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomActivity.swift; sourceTree = "<group>"; };
 		A2BBBDDC26B8633F004AC00F /* TextFieldVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldVC.swift; sourceTree = "<group>"; };
 		A2C751C926C04EC300EBBD23 /* UIScrollView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Extensions.swift"; sourceTree = "<group>"; };
+		A2D9620F26C93F7E008FF2B6 /* TableViewControllerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerVC.swift; sourceTree = "<group>"; };
+		A2D9621426C96126008FF2B6 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlVC.swift; sourceTree = "<group>"; };
 		A2F027D726A1E62300056367 /* ButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC.swift; sourceTree = "<group>"; };
 		A2F1A6DD26C7F1A100E144D9 /* EmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModel.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				A20D179726C0419900C714D8 /* ProgressViewVC.swift */,
 				A2422F6226C145C500A3BFF4 /* PageViewController */,
 				A2F1A6DA26C7EC8C00E144D9 /* TablewView */,
+				A2D9621326C94267008FF2B6 /* TableViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +173,15 @@
 				A29C95BB269EB32800488036 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		A2D9621326C94267008FF2B6 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A2D9620F26C93F7E008FF2B6 /* TableViewControllerVC.swift */,
+				A2D9621426C96126008FF2B6 /* ItemModel.swift */,
+			);
+			path = TableViewController;
 			sourceTree = "<group>";
 		};
 		A2F1A6DA26C7EC8C00E144D9 /* TablewView */ = {
@@ -248,10 +262,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D9621526C96126008FF2B6 /* ItemModel.swift in Sources */,
 				A2F1A6DE26C7F1A100E144D9 /* EmojiModel.swift in Sources */,
 				A29C95B2269EB32700488036 /* LabelVC.swift in Sources */,
 				A28906E026B0168300034CD1 /* ViewVC.swift in Sources */,
 				A2422F5C26C1232A00A3BFF4 /* PageViewControllerVC.swift in Sources */,
+				A2D9621026C93F7E008FF2B6 /* TableViewControllerVC.swift in Sources */,
 				A20D179826C0419900C714D8 /* ProgressViewVC.swift in Sources */,
 				A21F4A5D26AF0DB6001E39D6 /* ImageViewVC.swift in Sources */,
 				A29C95AE269EB32700488036 /* AppDelegate.swift in Sources */,
