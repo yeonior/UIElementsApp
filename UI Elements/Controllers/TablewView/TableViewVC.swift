@@ -60,18 +60,18 @@ final class TableViewVC: UIViewController {
         view.addSubview(myTableView)
     }
     
-    // enable table editing mode
+    // enabling table editing mode
     @objc private func editAction(_ sender: UIBarButtonItem) {
         guard sender == navigationItem.rightBarButtonItem else { return }
         
         if myTableView.isEditing {
             sender.title = "Edit"
             sender.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 17)], for: .normal)
-            myTableView.isEditing.toggle()
+            myTableView.setEditing(false, animated: true)
         } else {
             sender.title = "Done"
             sender.setTitleTextAttributes([.font : UIFont.boldSystemFont(ofSize: 17)], for: .normal)
-            myTableView.isEditing.toggle()
+            myTableView.setEditing(true, animated: true)
         }
     }
 }

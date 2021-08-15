@@ -26,7 +26,7 @@ final class PageVC: UIViewController {
         description.textAlignment = .center
         description.numberOfLines = 0
         description.adjustsFontSizeToFitWidth = true
-        description.minimumScaleFactor = 0.7
+        description.minimumScaleFactor = 0.5
         return description
     }()
     
@@ -53,14 +53,14 @@ final class PageVC: UIViewController {
         
         NSLayoutConstraint.activate([
             emojiLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
+            emojiLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
             emojiLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8)
         ])
         
         NSLayoutConstraint.activate([
             descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            descriptionLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 100),
+            descriptionLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 50),
             descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
     }

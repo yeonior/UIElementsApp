@@ -20,11 +20,16 @@ class MyCustomButton: UIButton {
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20.0)
         contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        layer.cornerRadius = 15
         titleLabel?.numberOfLines = 1
         titleLabel?.adjustsFontSizeToFitWidth = true
         titleLabel?.minimumScaleFactor = 0.7
         titleLabel?.textAlignment = .center
+        
+        // layer
+        layer.cornerRadius = 15
+        layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+        layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        layer.shadowOpacity = 1.0
         
         // colors
         setTitleColor(.label.withAlphaComponent(1), for: .normal)

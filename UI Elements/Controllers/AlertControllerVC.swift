@@ -9,8 +9,8 @@ import UIKit
 
 final class AlertControllerVC: UIViewController {
     
-    private let alertButton = UIButton()
-    private let actionSheetButton = UIButton()
+    private let alertButton = MyCustomButton(title: "Alert")
+    private let actionSheetButton = MyCustomButton(title: "Action Sheet")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,21 +24,11 @@ final class AlertControllerVC: UIViewController {
     
     private func configureButtons() {
         
-        // attributes
-        alertButton.setTitle("Alert", for: .normal)
-        actionSheetButton.setTitle("Action Sheet", for: .normal)
-        
         let buttons = [alertButton, actionSheetButton]
         for button in buttons {
-            button.layer.cornerRadius = 15
-            button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
-            button.titleLabel?.numberOfLines = 0
-            button.titleLabel?.textAlignment = .center
-            
-            // colors
+
+            // color
             button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1).withAlphaComponent(0.5)
-            button.setTitleColor(.label.withAlphaComponent(1), for: .normal)
-            button.setTitleColor(.label.withAlphaComponent(0.2), for: .highlighted)
             
             // action
             button.addTarget(self, action: #selector(buttonDidTouchUpInside(_:)), for: .touchUpInside)
