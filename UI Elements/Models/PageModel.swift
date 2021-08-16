@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct PageHelper {
+struct PageModel {
     var emoji: String
     var description: String
 }

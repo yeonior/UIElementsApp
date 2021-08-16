@@ -194,7 +194,7 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
             break
         }
         
-        let page = PageHelper(emoji: emoji, description: description)
+        let page = PageModel(emoji: emoji, description: description)
         navigationController?.pushViewController(PageVC(page: page), animated: true)
     }
     

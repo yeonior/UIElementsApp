@@ -34,7 +34,7 @@ final class PageVC: UIViewController {
     
     // MARK: - Page configuring (init)
     
-    init(page: PageHelper) {
+    init(page: PageModel) {
         super.init(nibName: nil, bundle: nil)
         
         // init labels

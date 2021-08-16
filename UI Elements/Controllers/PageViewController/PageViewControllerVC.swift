@@ -9,7 +9,7 @@ import UIKit
 
 final class PageViewControllerVC: UIPageViewController {
     
-    var pages = [PageHelper]()
+    var pages = [PageModel]()
     lazy var pageViewControllers: [PageVC] = {
         var viewControllers = [PageVC]()
         for page in pages {
@@ -48,10 +48,10 @@ final class PageViewControllerVC: UIPageViewController {
     
     private func configurePages() {
         
-        let firstPage = PageHelper(emoji: "👋", description: "Hello there! \n \nHere you can learn a little bit about PageViewController! \n \nSwipe left to go to the next page.")
-        let secondPage = PageHelper(emoji: "📥 + 📄", description: "PageViewController is a container view controller that manages navigation between pages of content, where a child view controller manages each page.")
-        let thirdPage = PageHelper(emoji: "⬇", description: "Look at the page indicator down here! \n \nIt is a control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.")
-        let fourthPage = PageHelper(emoji: "👍", description: "All right, that's it! \n \nIt was a quick review about PageViewController. \n \nSee you later!")
+        let firstPage = PageModel(emoji: "👋", description: "Hello there! \n \nHere you can learn a little bit about PageViewController! \n \nSwipe left to go to the next page.")
+        let secondPage = PageModel(emoji: "📥 + 📄", description: "PageViewController is a container view controller that manages navigation between pages of content, where a child view controller manages each page.")
+        let thirdPage = PageModel(emoji: "⬇", description: "Look at the page indicator down here! \n \nIt is a control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.")
+        let fourthPage = PageModel(emoji: "👍", description: "All right, that's it! \n \nIt was a quick review about PageViewController. \n \nSee you later!")
         pages = [firstPage, secondPage, thirdPage, fourthPage]
     }
     

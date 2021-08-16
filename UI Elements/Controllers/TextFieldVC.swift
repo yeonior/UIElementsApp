@@ -34,7 +34,7 @@ final class TextFieldVC: UIViewController {
         // attributes
         myTextField.borderStyle = .roundedRect
         myTextField.placeholder = "Write something here"
-        myTextField.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20.0)
+        myTextField.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 14.0)
         myTextField.textAlignment = .left
         myTextField.clearButtonMode = .whileEditing
         myTextField.keyboardType = .emailAddress

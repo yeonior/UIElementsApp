@@ -11,7 +11,7 @@ final class MenuVC: UIViewController {
     
     private lazy var myScrollView = UIScrollView()
     private lazy var myStackView = UIStackView()
-    private var myStackViewContentSizeKey = false
+    private var firstAppearanceKey = false
     
     // buttons
     
@@ -105,6 +105,11 @@ final class MenuVC: UIViewController {
         return button
     }()
     
+    private lazy var tabBarControllerButton: MyCustomButton = {
+        let button = MyCustomButton(title: "TabBarController")
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,12 +123,14 @@ final class MenuVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         // makes scroll view's content size bigger and pin it
-        if !myStackViewContentSizeKey {
+        if !firstAppearanceKey {
             myScrollView.contentSize = CGSize(width: view.bounds.size.width,
                                               height: myStackView.bounds.size.height + 80)
-            myStackViewContentSizeKey = true
+            firstAppearanceKey = true
+            
+            // scrolling to bottom
+            myScrollView.scrollsToBottom(animated: true)
         }
-        myScrollView.scrollsToBottom(animated: true)
     }
     
     // MARK: - Scroll view configuring
@@ -165,7 +172,8 @@ final class MenuVC: UIViewController {
             progressViewButton,
             pageViewControllerButton,
             tableViewButton,
-            tableViewControllerButton
+            tableViewControllerButton,
+            tabBarControllerButton
         ]
         
         for button in buttons {
@@ -224,6 +232,7 @@ final class MenuVC: UIViewController {
         case pageViewControllerButton: viewController = PageViewControllerVC()
         case tableViewButton: viewController = TableViewVC()
         case tableViewControllerButton: viewController = TableViewControllerVC()
+        case tabBarControllerButton: viewController = TabBarControllerVC()
         default: break
         }
         navigationController?.pushViewController(viewController, animated: true)
