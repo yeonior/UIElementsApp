@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TextFieldVC: UIViewController {
+final class TextFieldVC: UIViewController, TitleAndColorProvider {
     
     private let myTextField = UITextField()
 
@@ -20,11 +20,19 @@ final class TextFieldVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        title = "UITextField"
-        view.backgroundColor = .systemBackground
         view.addSubview(myTextField)
         myTextField.delegate = self
         configureTextField()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Text field configuring

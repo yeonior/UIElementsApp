@@ -7,17 +7,24 @@
 
 import UIKit
 
-final class SegmentedControlVC: UIViewController {
+final class SegmentedControlVC: UIViewController, TitleAndColorProvider {
     
     private var mySegmentedControl = UISegmentedControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UISegmentedControl"
-        view.backgroundColor = .systemBackground
         cofigureSegmentedControl()
-        
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Segmented control configuring

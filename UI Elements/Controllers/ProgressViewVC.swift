@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProgressViewVC: UIViewController {
+final class ProgressViewVC: UIViewController, TitleAndColorProvider {
     
     private let myProgressView = UIProgressView()
     private let button: MyCustomButton = {
@@ -19,13 +19,21 @@ final class ProgressViewVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "UIProgressView"
-        view.backgroundColor = .systemBackground
+        
         view.addSubview(myProgressView)
         view.addSubview(button)
         configureProgressView()
         configureButton()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Progress view configuring

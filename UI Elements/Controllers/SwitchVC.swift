@@ -7,17 +7,25 @@
 
 import UIKit
 
-final class SwitchVC: UIViewController {
+final class SwitchVC: UIViewController, TitleAndColorProvider {
     
     private let mySwitch = UISwitch()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "UISwitch"
-        view.backgroundColor = .white
+        
         view.addSubview(mySwitch)
         configureSwitch()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Switch configuring

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewControllerVC: UITableViewController {
+final class TableViewControllerVC: UITableViewController, TitleAndColorProvider {
     
     private let cellIdentifier = "myCell"
     private lazy var someItems = ["Bread", "Milk", "Water", "Bananas"]
@@ -38,9 +38,17 @@ final class TableViewControllerVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UITableViewController"
-        view.backgroundColor = .systemBackground
         configureTableViewController()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Table view controller configuring
@@ -63,9 +71,6 @@ final class TableViewControllerVC: UITableViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
-        
-        // color
-        tableView.backgroundColor = .systemGroupedBackground        
     }
     
     // adding a new cell

@@ -24,6 +24,7 @@
 		A28906DE26AFFF7900034CD1 /* SliderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906DD26AFFF7800034CD1 /* SliderVC.swift */; };
 		A28906E026B0168300034CD1 /* ViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906DF26B0168300034CD1 /* ViewVC.swift */; };
 		A28906E226B0274F00034CD1 /* PickerViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28906E126B0274F00034CD1 /* PickerViewVC.swift */; };
+		A298116C26CBD34100EA3D65 /* TitleAndColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298116B26CBD34100EA3D65 /* TitleAndColorProvider.swift */; };
 		A29C95AE269EB32700488036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95AD269EB32700488036 /* AppDelegate.swift */; };
 		A29C95B0269EB32700488036 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95AF269EB32700488036 /* SceneDelegate.swift */; };
 		A29C95B2269EB32700488036 /* LabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C95B1269EB32700488036 /* LabelVC.swift */; };
@@ -60,6 +61,7 @@
 		A28906DD26AFFF7800034CD1 /* SliderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderVC.swift; sourceTree = "<group>"; };
 		A28906DF26B0168300034CD1 /* ViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewVC.swift; sourceTree = "<group>"; };
 		A28906E126B0274F00034CD1 /* PickerViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewVC.swift; sourceTree = "<group>"; };
+		A298116B26CBD34100EA3D65 /* TitleAndColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndColorProvider.swift; sourceTree = "<group>"; };
 		A29C95AA269EB32700488036 /* UI Elements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UI Elements.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29C95AD269EB32700488036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29C95AF269EB32700488036 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,21 +101,21 @@
 				A29C95B1269EB32700488036 /* LabelVC.swift */,
 				A2F027D726A1E62300056367 /* ButtonVC.swift */,
 				A21F4A5C26AF0DB6001E39D6 /* ImageViewVC.swift */,
-				A21F4A5826AEB05B001E39D6 /* TextViewVC.swift */,
 				A2BBBDDC26B8633F004AC00F /* TextFieldVC.swift */,
+				A21F4A5826AEB05B001E39D6 /* TextViewVC.swift */,
 				A21F4A5F26AF2568001E39D6 /* SwitchVC.swift */,
 				A28906DD26AFFF7800034CD1 /* SliderVC.swift */,
+				A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */,
 				A28906E126B0274F00034CD1 /* PickerViewVC.swift */,
 				A26A3DEE26B464C20008C590 /* DatePickerVC.swift */,
-				A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */,
 				A21638E126B710A900DF0D37 /* AlertControllerVC.swift */,
 				A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */,
-				A276699B26BC59A100FE8746 /* WebViewVC.swift */,
 				A20D179726C0419900C714D8 /* ProgressViewVC.swift */,
+				A24C6FB726CAB1CC004E352E /* TabBarControllerVC.swift */,
 				A2422F6226C145C500A3BFF4 /* PageViewController */,
 				A2B6524126C29FF2007F1C6D /* TableViewVC.swift */,
 				A2D9620F26C93F7E008FF2B6 /* TableViewControllerVC.swift */,
-				A24C6FB726CAB1CC004E352E /* TabBarControllerVC.swift */,
+				A276699B26BC59A100FE8746 /* WebViewVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +137,23 @@
 				A2D9621426C96126008FF2B6 /* ItemModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A298116D26CBD48600EA3D65 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A298116B26CBD34100EA3D65 /* TitleAndColorProvider.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A298116E26CBEDF500EA3D65 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */,
+				A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */,
+			);
+			path = "Custom Classes";
 			sourceTree = "<group>";
 		};
 		A29C95A1269EB32700488036 = {
@@ -160,6 +179,8 @@
 				A29C95AF269EB32700488036 /* SceneDelegate.swift */,
 				A21F4A5E26AF0DBE001E39D6 /* Controllers */,
 				A24C6FB626CA76A9004E352E /* Models */,
+				A298116E26CBEDF500EA3D65 /* Custom Classes */,
+				A298116D26CBD48600EA3D65 /* Protocols */,
 				A2BBBDD426B810FA004AC00F /* Extensions */,
 				A2BBBDD926B8338E004AC00F /* Support */,
 			);
@@ -172,8 +193,6 @@
 				A26F134A26BB0C13004B8B68 /* UIViewController + Extensions.swift */,
 				A2BBBDD226B810F5004AC00F /* UIColor + Extensions.swift */,
 				A2C751C926C04EC300EBBD23 /* UIScrollView + Extensions.swift */,
-				A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */,
-				A26F134626BAFF0C004B8B68 /* MyCustomButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,6 +297,7 @@
 				A26F134B26BB0C13004B8B68 /* UIViewController + Extensions.swift in Sources */,
 				A2DDC21026B56E640059262D /* SegmentedControlVC.swift in Sources */,
 				A2F027D826A1E62300056367 /* ButtonVC.swift in Sources */,
+				A298116C26CBD34100EA3D65 /* TitleAndColorProvider.swift in Sources */,
 				A2BBBDD326B810F5004AC00F /* UIColor + Extensions.swift in Sources */,
 				A21638E226B710A900DF0D37 /* AlertControllerVC.swift in Sources */,
 				A28906DE26AFFF7900034CD1 /* SliderVC.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TextViewVC: UIViewController {
+final class TextViewVC: UIViewController, TitleAndColorProvider {
       
     private let myTextView = UITextView()
     
@@ -20,10 +20,18 @@ final class TextViewVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        title = "UITextView"
-        view.backgroundColor = .systemBackground
         view.addSubview(myTextView)
         configureTextView()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Text view configuring

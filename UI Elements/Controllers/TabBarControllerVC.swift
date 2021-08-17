@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarControllerVC: UITabBarController {
+class TabBarControllerVC: UITabBarController, TitleAndColorProvider {
     
     private let firstPage = PageVC(page: PageModel(emoji: "🚗", description: ""))
     private let secondPage = PageVC(page: PageModel(emoji: "🚌", description: ""))
@@ -17,9 +17,17 @@ class TabBarControllerVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UITabBarController"
-        view.backgroundColor = .systemBackground
         configureTabBarController()
+    }
+    
+    required init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // changing colors

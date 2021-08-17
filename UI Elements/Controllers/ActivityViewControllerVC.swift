@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ActivityViewControllerVC: UIViewController {
+final class ActivityViewControllerVC: UIViewController, TitleAndColorProvider {
     
     private let shareButton = UIButton()
     private var myActivityViewController: UIActivityViewController? = nil
@@ -15,10 +15,18 @@ final class ActivityViewControllerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UIActivityViewController"
-        view.backgroundColor = .systemBackground
         view.addSubview(shareButton)
         configureButton()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Button configuring

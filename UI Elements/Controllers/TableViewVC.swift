@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewVC: UIViewController {
+final class TableViewVC: UIViewController, TitleAndColorProvider {
     
     private var myTableView = UITableView()
     private let cellIdentifier = "myCell"
@@ -31,11 +31,19 @@ final class TableViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UITableView"
-        view.backgroundColor = .systemBackground
         configureTableView()
         myTableView.delegate = self
         myTableView.dataSource = self
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Table view configuring
@@ -52,9 +60,6 @@ final class TableViewVC: UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(editAction(_:)))
-        
-        // color
-        myTableView.backgroundColor = .systemGroupedBackground
         
         // adding
         view.addSubview(myTableView)

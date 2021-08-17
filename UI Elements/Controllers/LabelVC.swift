@@ -7,17 +7,25 @@
 
 import UIKit
 
-final class LabelVC: UIViewController {
+final class LabelVC: UIViewController, TitleAndColorProvider {
     
     private let myLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UILabel"
-        view.backgroundColor = .systemBackground
         view.addSubview(myLabel)
         configureLabel()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Label configuring

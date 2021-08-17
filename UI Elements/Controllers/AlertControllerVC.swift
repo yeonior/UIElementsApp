@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AlertControllerVC: UIViewController {
+final class AlertControllerVC: UIViewController, TitleAndColorProvider {
     
     private let alertButton = MyCustomButton(title: "Alert")
     private let actionSheetButton = MyCustomButton(title: "Action Sheet")
@@ -15,9 +15,17 @@ final class AlertControllerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UIAlertController"
-        view.backgroundColor = .systemBackground
         configureButtons()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Buttons configuring

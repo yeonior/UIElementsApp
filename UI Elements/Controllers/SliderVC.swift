@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SliderVC: UIViewController {
+final class SliderVC: UIViewController, TitleAndColorProvider {
     
     private let mySlider = UISlider()
     private let firstView = UIView()
@@ -21,7 +21,6 @@ final class SliderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UISlider"
         view.addSubview(firstView)
         view.addSubview(secondView)
         secondView.addSubview(mySlider)
@@ -29,12 +28,21 @@ final class SliderVC: UIViewController {
         configureSlider()
     }
     
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: Views configuring
     
     private func configureViews() {
         
         // colors
-        view.backgroundColor = .black
         firstView.backgroundColor = .white
         firstView.alpha = firstViewAlpha
         secondView.backgroundColor = .clear

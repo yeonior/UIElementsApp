@@ -7,17 +7,25 @@
 
 import UIKit
 
-final class ViewVC: UIViewController {
-    
+final class ViewVC: UIViewController, TitleAndColorProvider {
+     
     private let myView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UIView"
-        view.backgroundColor = .systemBackground
         view.addSubview(myView)
         configureView()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - View configuring

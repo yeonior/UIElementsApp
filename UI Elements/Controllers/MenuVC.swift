@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MenuVC: UIViewController {
+final class MenuVC: UIViewController, TitleAndColorProvider {
     
     private lazy var myScrollView = UIScrollView()
     private lazy var myStackView = UIStackView()
@@ -35,13 +35,13 @@ final class MenuVC: UIViewController {
         return button
     }()
     
-    private lazy var textViewButton: MyCustomButton = {
-        let button = MyCustomButton(title: "TextView")
+    private lazy var textFieldButton: MyCustomButton = {
+        let button = MyCustomButton(title: "TextField")
         return button
     }()
     
-    private lazy var textFieldButton: MyCustomButton = {
-        let button = MyCustomButton(title: "TextField")
+    private lazy var textViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "TextView")
         return button
     }()
     
@@ -55,6 +55,11 @@ final class MenuVC: UIViewController {
         return button
     }()
     
+    private lazy var segmentedControlButton: MyCustomButton = {
+        let button = MyCustomButton(title: "SegmentedControl")
+        return button
+    }()
+    
     private lazy var pickerViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "PickerView")
         return button
@@ -62,11 +67,6 @@ final class MenuVC: UIViewController {
     
     private lazy var datePickerButton: MyCustomButton = {
         let button = MyCustomButton(title: "DatePicker")
-        return button
-    }()
-    
-    private lazy var segmentedControlButton: MyCustomButton = {
-        let button = MyCustomButton(title: "SegmentedControl")
         return button
     }()
     
@@ -80,13 +80,13 @@ final class MenuVC: UIViewController {
         return button
     }()
     
-    private lazy var webViewButton: MyCustomButton = {
-        let button = MyCustomButton(title: "WebView")
+    private lazy var progressViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "ProgressView")
         return button
     }()
     
-    private lazy var progressViewButton: MyCustomButton = {
-        let button = MyCustomButton(title: "ProgressView")
+    private lazy var tabBarControllerButton: MyCustomButton = {
+        let button = MyCustomButton(title: "TabBarController")
         return button
     }()
     
@@ -105,16 +105,14 @@ final class MenuVC: UIViewController {
         return button
     }()
     
-    private lazy var tabBarControllerButton: MyCustomButton = {
-        let button = MyCustomButton(title: "TabBarController")
+    private lazy var webViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "WebView")
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Menu"
-        view.backgroundColor = .systemBackground
         view.addSubview(myScrollView)
         configureScrollView()
         configureButtons()        
@@ -131,6 +129,16 @@ final class MenuVC: UIViewController {
             // scrolling to bottom
             myScrollView.scrollsToBottom(animated: true)
         }
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Scroll view configuring
@@ -163,17 +171,17 @@ final class MenuVC: UIViewController {
             textViewButton,
             switchButton,
             sliderButton,
+            segmentedControlButton,
             pickerViewButton,
             datePickerButton,
-            segmentedControlButton,
             alertControllerButton,
             activityViewControllerButton,
-            webViewButton,
             progressViewButton,
+            tabBarControllerButton,
             pageViewControllerButton,
             tableViewButton,
             tableViewControllerButton,
-            tabBarControllerButton
+            webViewButton
         ]
         
         for button in buttons {
@@ -207,35 +215,51 @@ final class MenuVC: UIViewController {
     // pushing a specific view controller
     @objc private func buttonDidTouchUpInside(_ sender: UIButton) {
         
-        var viewController = UIViewController()
+        var vc = UIViewController()
         
         switch sender {
-        case viewButton: viewController = ViewVC()
-        case labelButton: viewController = LabelVC()
-        case buttonButton: viewController = ButtonVC()
-        case imageViewButton: viewController = ImageViewVC()
-        case textFieldButton: viewController = TextFieldVC()
-        case textViewButton: viewController = TextViewVC()
-        case switchButton: viewController = SwitchVC()
-        case sliderButton: viewController = SliderVC()
-        case pickerViewButton: viewController = PickerViewVC()
-        case datePickerButton: viewController = DatePickerVC()
-        case segmentedControlButton: viewController = SegmentedControlVC()
-        case alertControllerButton: viewController = AlertControllerVC()
-        case activityViewControllerButton: viewController = ActivityViewControllerVC()
+        case viewButton: vc = ViewVC(title: "UIView",
+                                                 backgroundColor: .systemBackground)
+        case labelButton: vc = LabelVC(title: "UILabel",
+                                                   backgroundColor: .systemBackground)
+        case buttonButton: vc = ButtonVC(title: "UIButton",
+                                                     backgroundColor: .white)
+        case imageViewButton: vc = ImageViewVC(title: "UIImageView",
+                                                           backgroundColor: .systemBackground)
+        case textFieldButton: vc = TextFieldVC(title: "UITextField",
+                                               backgroundColor: .systemBackground)
+        case textViewButton: vc = TextViewVC(title: "UITextView",
+                                                         backgroundColor: .systemBackground)
+        case switchButton: vc = SwitchVC(title: "UISwitch",
+                                                     backgroundColor: .white)
+        case sliderButton: vc = SliderVC(title: "UISlider",
+                                                     backgroundColor: .black)
+        case segmentedControlButton: vc = SegmentedControlVC(title: "UISegmentedControl",
+                                                             backgroundColor: .systemBackground)
+        case pickerViewButton: vc = PickerViewVC()
+        case datePickerButton: vc = DatePickerVC(title: "UIDatePicker",
+                                                             backgroundColor: .systemBackground)
+        case alertControllerButton: vc = AlertControllerVC(title: "UIAlertController",
+                                                           backgroundColor: .systemBackground)
+        case activityViewControllerButton: vc = ActivityViewControllerVC(title: "UIActivityController",
+                                                                         backgroundColor: .systemBackground)
+        case progressViewButton: vc = ProgressViewVC(title: "UIProgressView",
+                                                     backgroundColor: .systemBackground)
+        case tabBarControllerButton: vc = TabBarControllerVC(title: "UITabBarController",
+                                                             backgroundColor: .systemBackground)
+        case pageViewControllerButton: vc = PageViewControllerVC()
+        case tableViewButton: vc = TableViewVC(title: "UITableView",
+                                               backgroundColor: .systemBackground)
+        case tableViewControllerButton: vc = TableViewControllerVC(title: "UITableViewController",
+                                                                   backgroundColor: .systemGroupedBackground)
         case webViewButton:
-            viewController = WebViewVC()
-            let navigationVC = UINavigationController(rootViewController: viewController)
+            vc = WebViewVC()
+            let navigationVC = UINavigationController(rootViewController: vc)
             present(navigationVC, animated: true, completion: nil)
             return
-        case progressViewButton: viewController = ProgressViewVC()
-        case pageViewControllerButton: viewController = PageViewControllerVC()
-        case tableViewButton: viewController = TableViewVC()
-        case tableViewControllerButton: viewController = TableViewControllerVC()
-        case tabBarControllerButton: viewController = TabBarControllerVC()
         default: break
         }
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -7,17 +7,25 @@
 
 import UIKit
 
-final class DatePickerVC: UIViewController {
+final class DatePickerVC: UIViewController, TitleAndColorProvider {
     
     private let myDatePicker = UIDatePicker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UIDatePicker"
-        view.backgroundColor = .systemBackground
         view.addSubview(myDatePicker)
         configureDatePicker()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Date picker configuring

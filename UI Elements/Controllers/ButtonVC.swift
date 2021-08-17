@@ -7,17 +7,25 @@
 
 import UIKit
 
-final class ButtonVC: UIViewController {
+final class ButtonVC: UIViewController, TitleAndColorProvider {
     
     private let myButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "UIButton"
-        view.backgroundColor = .white
         view.addSubview(myButton)
         configureButton()
+    }
+    
+    init(title: String, backgroundColor: UIColor) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+        self.view.backgroundColor = backgroundColor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Button configuring
