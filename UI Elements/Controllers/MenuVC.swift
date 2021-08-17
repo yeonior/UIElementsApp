@@ -105,6 +105,11 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         return button
     }()
     
+    private lazy var collectionViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "CollectionView")
+        return button
+    }()
+    
     private lazy var webViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "WebView")
         return button
@@ -181,6 +186,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             pageViewControllerButton,
             tableViewButton,
             tableViewControllerButton,
+            collectionViewButton,
             webViewButton
         ]
         
@@ -252,6 +258,8 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
                                                backgroundColor: .systemBackground)
         case tableViewControllerButton: vc = TableViewControllerVC(title: "UITableViewController",
                                                                    backgroundColor: .systemGroupedBackground)
+        case collectionViewButton: vc = CollectionViewVC(title: "UICollectionView",
+                                                         backgroundColor: .systemBackground)
         case webViewButton:
             vc = WebViewVC()
             let navigationVC = UINavigationController(rootViewController: vc)
