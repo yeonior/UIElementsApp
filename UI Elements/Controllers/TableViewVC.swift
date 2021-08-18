@@ -200,7 +200,7 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         let page = PageModel(emoji: emoji, description: description)
-        navigationController?.pushViewController(PageVC(page: page), animated: true)
+        navigationController?.pushViewController(MyPage(page: page), animated: true)
     }
     
     // leading swipe actions

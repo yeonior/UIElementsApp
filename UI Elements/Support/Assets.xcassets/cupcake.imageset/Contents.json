@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "hello.png",
+      "filename" : "cupcake.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "hello-1.png",
+      "filename" : "cupcake-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "hello-2.png",
+      "filename" : "cupcake-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

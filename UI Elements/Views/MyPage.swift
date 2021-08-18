@@ -1,5 +1,5 @@
 //
-//  PageVC.swift
+//  MyPage.swift
 //  UI Elements
 //
 //  Created by ruslan on 09.08.2021.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class PageVC: UIViewController {
+final class MyPage: UIViewController {
     
     // MARK: Emoji label configuring
-    private let emojiLabel: UILabel = {
+    private let myEmojiLabel: UILabel = {
         let emoji = UILabel()
         emoji.font = UIFont.systemFont(ofSize: 150)
         emoji.textAlignment = .center
@@ -20,7 +20,7 @@ final class PageVC: UIViewController {
     }()
     
     // MARK: Description label configuring
-    private let descriptionLabel: UILabel = {
+    private let myDescriptionLabel: UILabel = {
         let description = UILabel()
         description.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
         description.textAlignment = .center
@@ -30,7 +30,7 @@ final class PageVC: UIViewController {
         return description
     }()
     
-    lazy private var subView = [emojiLabel, descriptionLabel]
+    lazy private var subView = [myEmojiLabel, myDescriptionLabel]
     
     // MARK: - Page configuring (init)
     
@@ -38,8 +38,8 @@ final class PageVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         // init labels
-        emojiLabel.text = page.emoji
-        descriptionLabel.text = page.description
+        myEmojiLabel.text = page.emoji
+        myDescriptionLabel.text = page.description
         
         // color
         view.backgroundColor = .systemBackground
@@ -52,16 +52,16 @@ final class PageVC: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            emojiLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
-            emojiLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8)
+            myEmojiLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myEmojiLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
+            myEmojiLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8)
         ])
         
         NSLayoutConstraint.activate([
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            descriptionLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 50),
-            descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+            myDescriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myDescriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            myDescriptionLabel.topAnchor.constraint(equalTo: myEmojiLabel.bottomAnchor, constant: 50),
+            myDescriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
     }
     

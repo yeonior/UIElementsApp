@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "hello.png",
+      "filename" : "french-fries.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "hello-1.png",
+      "filename" : "french-fries-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "hello-2.png",
+      "filename" : "french-fries-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

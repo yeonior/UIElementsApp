@@ -10,10 +10,10 @@ import UIKit
 final class PageViewControllerVC: UIPageViewController {
     
     var pages = [PageModel]()
-    lazy var pageViewControllers: [PageVC] = {
-        var viewControllers = [PageVC]()
+    lazy var pageViewControllers: [MyPage] = {
+        var viewControllers = [MyPage]()
         for page in pages {
-            viewControllers.append(PageVC(page: page))
+            viewControllers.append(MyPage(page: page))
         }
         return viewControllers
     }()
@@ -71,7 +71,7 @@ extension PageViewControllerVC: UIPageViewControllerDataSource {
     
     // view controller before the given one
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let vc = viewController as? PageVC else { return nil }
+        guard let vc = viewController as? MyPage else { return nil }
         
         if let index = pageViewControllers.firstIndex(of: vc) {
             if index > 0 {
@@ -86,7 +86,7 @@ extension PageViewControllerVC: UIPageViewControllerDataSource {
     
     // view controller after the given one
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let vc = viewController as? PageVC else { return nil }
+        guard let vc = viewController as? MyPage else { return nil }
         
         if let index = pageViewControllers.firstIndex(of: vc) {
             if index < pageViewControllers.count - 1 {

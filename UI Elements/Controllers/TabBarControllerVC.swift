@@ -9,10 +9,10 @@ import UIKit
 
 class TabBarControllerVC: UITabBarController, TitleAndColorProvider {
     
-    private let firstPage = PageVC(page: PageModel(emoji: "🚗", description: ""))
-    private let secondPage = PageVC(page: PageModel(emoji: "🚌", description: ""))
-    private let thirdPage = PageVC(page: PageModel(emoji: "🚋", description: ""))
-    private let fourthPage = PageVC(page: PageModel(emoji: "✈️", description: ""))
+    private let firstPage = MyPage(page: PageModel(emoji: "🚗", description: ""))
+    private let secondPage = MyPage(page: PageModel(emoji: "🚌", description: ""))
+    private let thirdPage = MyPage(page: PageModel(emoji: "🚋", description: ""))
+    private let fourthPage = MyPage(page: PageModel(emoji: "✈️", description: ""))
     
     override func viewDidLoad() {
         super.viewDidLoad()

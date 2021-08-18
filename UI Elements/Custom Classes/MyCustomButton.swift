@@ -28,6 +28,11 @@ class MyCustomButton: UIButton {
         // layer
         layer.cornerRadius = 15
         layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+//        if traitCollection.userInterfaceStyle == .light {
+//            layer.shadowColor = UIColor.black.cgColor
+//        } else {
+//            layer.shadowColor = UIColor.white.cgColor
+//        }
         layer.shadowOffset = CGSize(width: 0, height: 4.0)
         layer.shadowOpacity = 1.0
         
@@ -40,4 +45,12 @@ class MyCustomButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        if previousTraitCollection?.userInterfaceStyle == .light {
+//            layer.shadowColor = UIColor.white.cgColor
+//        } else {
+//            layer.shadowColor = UIColor.black.cgColor
+//        }
+//    }
 }
