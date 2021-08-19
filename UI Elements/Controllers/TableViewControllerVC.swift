@@ -12,18 +12,18 @@ final class TableViewControllerVC: UITableViewController, TitleAndColorProvider 
     private let cellIdentifier = "myCell"
     private lazy var someItems = ["Bread", "Milk", "Water", "Bananas"]
     private var list = [
-        Item(name: "Sugar", isCheckmarked: false),
-        Item(name: "Flour", isCheckmarked: false),
-        Item(name: "Tomatoes", isCheckmarked: true),
-        Item(name: "Chicken breast", isCheckmarked: false),
-        Item(name: "Eggs", isCheckmarked: false),
-        Item(name: "Potatoes", isCheckmarked: false),
-        Item(name: "Cheese", isCheckmarked: false),
-        Item(name: "Chocolate", isCheckmarked: true),
-        Item(name: "Rice", isCheckmarked: false),
-        Item(name: "Butter", isCheckmarked: false),
+        ItemModel(name: "Sugar", isCheckmarked: false),
+        ItemModel(name: "Flour", isCheckmarked: false),
+        ItemModel(name: "Tomatoes", isCheckmarked: true),
+        ItemModel(name: "Chicken breast", isCheckmarked: false),
+        ItemModel(name: "Eggs", isCheckmarked: false),
+        ItemModel(name: "Potatoes", isCheckmarked: false),
+        ItemModel(name: "Cheese", isCheckmarked: false),
+        ItemModel(name: "Chocolate", isCheckmarked: true),
+        ItemModel(name: "Rice", isCheckmarked: false),
+        ItemModel(name: "Butter", isCheckmarked: false),
     ]
-    private var filteredList = [Item]()
+    private var filteredList = [ItemModel]()
     
     // for searching
     private let searchController = UISearchController(searchResultsController: nil)
@@ -84,7 +84,7 @@ final class TableViewControllerVC: UITableViewController, TitleAndColorProvider 
         
         let addButton = UIAlertAction(title: "Add", style: .default) { [unowned self] _ in
             guard let itemName = alertController.textFields?.first?.text, itemName != "" else { return }
-            self.list.append(Item(name: itemName, isCheckmarked: false))
+            self.list.append(ItemModel(name: itemName, isCheckmarked: false))
             tableView.insertRows(at: [IndexPath(row: list.count - 1,
                                                 section: tableView.numberOfSections - 1)],
                                  with: .automatic)

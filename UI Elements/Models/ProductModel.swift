@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product {
+struct ProductModel {
     var name: String
     var imageName: String
     var price: Int

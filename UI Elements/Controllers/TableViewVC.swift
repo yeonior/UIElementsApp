@@ -13,19 +13,19 @@ final class TableViewVC: UIViewController, TitleAndColorProvider {
     private let cellIdentifier = "myCell"
     
     private var emoji = [
-        Emoji(emoji: "🥸", description: "Disquised Face", symbol: "face.smiling", isFavourite: false),
-        Emoji(emoji: "🤠", description: "Cowboy Hat Face", symbol: "face.smiling", isFavourite: false),
-        Emoji(emoji: "🤯", description: "Exploding Head", symbol: "face.smiling", isFavourite: false)
+        EmojiModel(emoji: "🥸", description: "Disquised Face", symbol: "face.smiling", isFavourite: false),
+        EmojiModel(emoji: "🤠", description: "Cowboy Hat Face", symbol: "face.smiling", isFavourite: false),
+        EmojiModel(emoji: "🤯", description: "Exploding Head", symbol: "face.smiling", isFavourite: false)
     ]
     private var flags = [
-        Emoji(emoji: "🇨🇦", description: "Canada", symbol: "flag", isFavourite: false),
-        Emoji(emoji: "🇨🇿", description: "Czech Republic", symbol: "flag", isFavourite: false),
-        Emoji(emoji: "🇯🇵", description: "Japan", symbol: "flag", isFavourite: false)
+        EmojiModel(emoji: "🇨🇦", description: "Canada", symbol: "flag", isFavourite: false),
+        EmojiModel(emoji: "🇨🇿", description: "Czech Republic", symbol: "flag", isFavourite: false),
+        EmojiModel(emoji: "🇯🇵", description: "Japan", symbol: "flag", isFavourite: false)
     ]
     private var weather = [
-        Emoji(emoji: "☀️", description: "Clear sky", symbol: "cloud", isFavourite: false),
-        Emoji(emoji: "🌧", description: "Rain", symbol: "cloud", isFavourite: false),
-        Emoji(emoji: "🌨", description: "Snow", symbol: "cloud", isFavourite: false)
+        EmojiModel(emoji: "☀️", description: "Clear sky", symbol: "cloud", isFavourite: false),
+        EmojiModel(emoji: "🌧", description: "Rain", symbol: "cloud", isFavourite: false),
+        EmojiModel(emoji: "🌨", description: "Snow", symbol: "cloud", isFavourite: false)
     ]
     
     override func viewDidLoad() {
@@ -146,7 +146,7 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
     // moving rows
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
-        var object = Emoji(emoji: "🚫", description: "N/A", symbol: "nosign", isFavourite: false)
+        var object = EmojiModel(emoji: "🚫", description: "N/A", symbol: "nosign", isFavourite: false)
         
         switch sourceIndexPath.section {
         case 0:
@@ -206,7 +206,7 @@ extension TableViewVC: UITableViewDelegate, UITableViewDataSource {
     // leading swipe actions
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        var object = Emoji(emoji: "🚫", description: "N/A", symbol: "nosign", isFavourite: false)
+        var object = EmojiModel(emoji: "🚫", description: "N/A", symbol: "nosign", isFavourite: false)
         
         switch indexPath.section {
         case 0: object = emoji[indexPath.row]

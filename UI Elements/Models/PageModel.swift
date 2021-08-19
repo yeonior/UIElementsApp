@@ -1,5 +1,5 @@
 //
-//  EmojiHelper.swift
+//  PageModel.swift
 //  UI Elements
 //
 //  Created by ruslan on 09.08.2021.

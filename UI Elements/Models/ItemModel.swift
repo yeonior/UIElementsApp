@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item {
+struct ItemModel {
     var name: String
     var isCheckmarked: Bool
 }

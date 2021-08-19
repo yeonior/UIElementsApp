@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Emoji {
+struct EmojiModel {
     var emoji: String
     var description: String
     var symbol: String

@@ -1,5 +1,5 @@
 //
-//  MyCell.swift
+//  MainCell.swift
 //  UI Elements
 //
 //  Created by ruslan on 17.08.2021.
@@ -8,15 +8,15 @@
 import UIKit
 
 // MARK: Cell size constants
-struct cellSizeConstants {
+struct MainCellSizeConstants {
     static let distanceToBorder: CGFloat = UIScreen.main.bounds.width * 0.08
     static let minimumLineSpacing: CGFloat = UIScreen.main.bounds.width * 0.05
     static let itemWidth: CGFloat = (UIScreen.main.bounds.width - distanceToBorder * 2 - minimumLineSpacing) / 1.3
 }
 
-final class MyCell: UICollectionViewCell {
+final class MainCell: UICollectionViewCell {
     
-    static let identifier = "MyCollectionViewCell"
+    static let identifier = "MainCell"
     
     // MARK: Image view configuring
     private let myImageView: UIImageView = {
@@ -110,7 +110,7 @@ final class MyCell: UICollectionViewCell {
     }
     
     // setting up data
-    public func setUpData(labelText: String, imageName: String, array: [Product]) {
+    public func setUpData(labelText: String, imageName: String, array: [ProductModel]) {
         nameLabel.text = labelText
         listLabel.text = ""
         for product in array {
