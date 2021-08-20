@@ -19,7 +19,7 @@ final class MainCell: UICollectionViewCell {
     static let identifier = "MainCell"
     
     // MARK: Image view configuring
-    private let myImageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "nosign")
         imageView.tintColor = .white
@@ -45,12 +45,13 @@ final class MainCell: UICollectionViewCell {
     private let listLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 20.0)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
         label.textAlignment = .left
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.6
+        label.minimumScaleFactor = 0.7
         label.clipsToBounds = true
+        label.textColor = .gray
         return label
     }()
     
@@ -60,7 +61,7 @@ final class MainCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // adding subviews
-        contentView.addSubview(myImageView)
+        contentView.addSubview(imageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(listLabel)
         
@@ -78,21 +79,22 @@ final class MainCell: UICollectionViewCell {
         
         // constraints
         
-        myImageView.translatesAutoresizingMaskIntoConstraints = false
-        myImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        myImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
-        myImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5).isActive = true
-        myImageView.heightAnchor.constraint(equalTo: myImageView.widthAnchor).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+        imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5).isActive = true
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: 10).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
         nameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
+        nameLabel.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.25).isActive = true
         
         listLabel.translatesAutoresizingMaskIntoConstraints = false
         listLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         listLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
-        listLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        listLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10).isActive = true
         listLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
     }
     
@@ -117,12 +119,13 @@ final class MainCell: UICollectionViewCell {
             listLabel.text! += "- " + product.name.lowercased() + "\n"
         }
         guard let image = UIImage(named: imageName) else { return }
-        myImageView.image = image
+        imageView.image = image
     }
     
 //    override func prepareForReuse() {
 //        super.prepareForReuse()
-//        myLabel.text = nil
-//        myImageView.image = nil
+//        imageView.image = nil
+//        nameLabel.text = nil
+//        listLabel.text = nil
 //    }
 }

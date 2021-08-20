@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "hot-dog.png",
+      "filename" : "cake.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "hot-dog-1.png",
+      "filename" : "cake-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "hot-dog-2.png",
+      "filename" : "cake-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

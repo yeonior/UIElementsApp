@@ -37,21 +37,21 @@ final class CategoryCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.1
+        label.clipsToBounds = true
         return label
     }()
     
-    // MARK: Cost label configuring
+    // MARK: Price label configuring
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 20.0)
+        label.textColor = .gray
         label.textAlignment = .right
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
-        label.clipsToBounds = true
-//        label.backgroundColor = .green
-        label.textColor = .gray
+        label.clipsToBounds = true        
         return label
     }()
     
@@ -119,7 +119,8 @@ final class CategoryCell: UICollectionViewCell {
     
 //    override func prepareForReuse() {
 //        super.prepareForReuse()
-//        myLabel.text = nil
-//        myImageView.image = nil
+//        imageView.image = nil
+//        nameLabel.text = nil
+//        priceLabel.text = nil
 //    }
 }

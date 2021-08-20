@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryPage: UIViewController {
+final class CategoryPage: UIViewController {
     
     private var myCollectionView: UICollectionView?
     private var productArray = [ProductModel]()
@@ -16,6 +16,28 @@ class CategoryPage: UIViewController {
         super.viewDidLoad()
         
         configureCollectionView()
+    }
+    
+    // updating collection view content insets
+    override func viewDidLayoutSubviews() {
+        guard let collectionView = myCollectionView else { return }
+        
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
+        let coef = CGFloat(round(Double(numberOfItems) / 2.0))
+        let height = CategoryCellSizeConstants.itemWidth * coef + CategoryCellSizeConstants.minimumLineSpacing * (coef - 1.0)
+        var topAndBottomDistance = (view.bounds.height - statusBarHeight - navigationBarHeight - bottomSafeAreaHeight - height) / 2
+        var leftAndRightDistance = CategoryCellSizeConstants.distanceToBorder
+        
+        if numberOfItems > 6 {
+            topAndBottomDistance = CategoryCellSizeConstants.distanceToBorder
+        } else if numberOfItems == 1 {
+            leftAndRightDistance = (view.bounds.width - CategoryCellSizeConstants.itemWidth - CategoryCellSizeConstants.minimumLineSpacing) / 2
+        }
+        
+        collectionView.contentInset = UIEdgeInsets(top: topAndBottomDistance,
+                                                   left: leftAndRightDistance,
+                                                   bottom: topAndBottomDistance,
+                                                   right: leftAndRightDistance)
     }
     
     required init(title: String, backgroundColor: UIColor, productArray: [ProductModel]) {
@@ -38,23 +60,16 @@ class CategoryPage: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = CategoryCellSizeConstants.minimumLineSpacing
-//        layout.itemSize = CGSize(width: (view.frame.width / 4) - 5, height: (view.frame.width / 4) - 5)
         
         // init and size
-        let bounds = view.bounds
-        let frame = CGRect(x: bounds.origin.x,
-                           y: bounds.origin.y,
-                           width: CategoryCellSizeConstants.itemWidth * 2 + CategoryCellSizeConstants.distanceToBorder * 2 + CategoryCellSizeConstants.minimumLineSpacing,
-                           height: CategoryCellSizeConstants.itemWidth * 3 + CategoryCellSizeConstants.distanceToBorder * 2 + CategoryCellSizeConstants.minimumLineSpacing * 2)
-        myCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        myCollectionView?.center = view.center
-        myCollectionView?.contentInset = UIEdgeInsets(top: CategoryCellSizeConstants.distanceToBorder,
-                                                      left: CategoryCellSizeConstants.distanceToBorder,
-                                                      bottom: CategoryCellSizeConstants.distanceToBorder,
-                                                      right: CategoryCellSizeConstants.distanceToBorder)
+        myCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
         guard let collectionView = myCollectionView else { return }
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.identifier)
+        collectionView.contentInset = UIEdgeInsets(top: CategoryCellSizeConstants.distanceToBorder,
+                                                   left: CategoryCellSizeConstants.distanceToBorder,
+                                                   bottom: CategoryCellSizeConstants.distanceToBorder,
+                                                   right: CategoryCellSizeConstants.distanceToBorder)
         
         // protocols
         collectionView.dataSource = self
