@@ -113,9 +113,27 @@ extension CategoryPage: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     // MARK: - Delegate
     
-    // action by selecting an item
+    // making items highlightable
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let item = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            item.alpha = 0.5
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                item.alpha = 1.0
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let item = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            item.alpha = 0.5
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let item = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            item.alpha = 1.0
+        }
     }
     
     // MARK: - Flow layout delegate

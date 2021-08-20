@@ -134,13 +134,36 @@ extension CollectionViewVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     // MARK: - Delegate
     
-    // action by selecting an item
+    // pushing a specific view controller and making items highlightable
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let item = collectionView.cellForItem(at: indexPath) as? MainCell {
+            item.alpha = 0.5
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                UIView.animate(withDuration: 1.0) {
+                    item.alpha = 1.0
+                }
+            }
+        }
         
         let vc = CategoryPage(title: CollectionViewVC.menu[indexPath.item].name,
                               backgroundColor: .systemBackground,
                               productArray: CollectionViewVC.menu[indexPath.item].productArray)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // making items highlightable
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let item = collectionView.cellForItem(at: indexPath) as? MainCell {
+            item.alpha = 0.5
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let item = collectionView.cellForItem(at: indexPath) as? MainCell {
+            item.alpha = 1.0
+        }
     }
     
     // MARK: - Flow layout delegate
