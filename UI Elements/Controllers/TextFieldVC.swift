@@ -23,6 +23,7 @@ final class TextFieldVC: UIViewController, TitleAndColorProvider {
         view.addSubview(myTextField)
         myTextField.delegate = self
         configureTextField()
+        addToolBar(with: myTextField)
     }
     
     init(title: String, backgroundColor: UIColor) {
@@ -46,7 +47,7 @@ final class TextFieldVC: UIViewController, TitleAndColorProvider {
         myTextField.textAlignment = .left
         myTextField.clearButtonMode = .whileEditing
         myTextField.keyboardType = .emailAddress
-        myTextField.returnKeyType = .done
+        myTextField.returnKeyType = .go
         
         // constraints
         myTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +56,24 @@ final class TextFieldVC: UIViewController, TitleAndColorProvider {
             myTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             myTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)
         ])
+    }
+    
+    // adding a toolbar to the keyboard
+    private func addToolBar(with textField: UITextField) {
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 40))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneAction = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
+        
+        toolbar.items = [flexibleSpace, doneAction]
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = .secondarySystemBackground
+        textField.inputAccessoryView = toolbar
+    }
+    
+    // keybord hiding by a toolbar button
+    @objc private func dismissKeyboard() {
+        myTextField.resignFirstResponder()
     }
     
     // keybord hiding by a tap
@@ -91,7 +110,7 @@ extension TextFieldVC: UITextFieldDelegate {
         view.backgroundColor = .systemBackground
     }
     
-    // keybord hiding by a return (done) button
+    // keybord hiding by a return (go) button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         myTextField.resignFirstResponder()
         return true
