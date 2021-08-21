@@ -10,6 +10,18 @@ import UIKit
 final class CollectionViewVC: UIViewController, TitleAndColorProvider {
     
     private var myCollectionView: UICollectionView?
+    private let authorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Icons designed by monkik from Flaticon"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 14.0)
+        label.textColor = .label.withAlphaComponent(0.2)
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.clipsToBounds = false
+        return label
+    }()
     static let menu: [CategoryModel] = [
         CategoryModel(name: "Drinks", imageName: "soft-drink",
                       productArray: [
@@ -97,12 +109,25 @@ final class CollectionViewVC: UIViewController, TitleAndColorProvider {
         collectionView.delegate = self
         
         // attributes
-        collectionView.backgroundColor = .systemBackground
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundView = UIView()
+        collectionView.backgroundView?.backgroundColor = .systemBackground
         
         // adding
         view.addSubview(collectionView)
+        guard let backgroundView = collectionView.backgroundView else { return }
+        backgroundView.addSubview(authorLabel)
+        
+        // backgroundView constraints
+        authorLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            authorLabel.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
+                                                constant: -bottomSafeAreaHeight),
+            authorLabel.widthAnchor.constraint(equalTo: backgroundView.widthAnchor),
+            authorLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
     }
 }
 
