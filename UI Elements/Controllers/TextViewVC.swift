@@ -22,6 +22,7 @@ final class TextViewVC: UIViewController, TitleAndColorProvider {
         
         view.addSubview(myTextView)
         configureTextView()
+        addToolBar(with: myTextView)
     }
     
     init(title: String, backgroundColor: UIColor) {
@@ -58,6 +59,24 @@ final class TextViewVC: UIViewController, TitleAndColorProvider {
             myTextView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             myTextView.heightAnchor.constraint(equalTo: myTextView.widthAnchor)
         ])
+    }
+    
+    // adding a toolbar to the keyboard
+    private func addToolBar(with textField: UITextView) {
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 40))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneAction = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
+        
+        toolbar.items = [flexibleSpace, doneAction]
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = .secondarySystemBackground
+        textField.inputAccessoryView = toolbar
+    }
+    
+    // keybord hiding by a toolbar button
+    @objc private func dismissKeyboard() {
+        myTextView.resignFirstResponder()
     }
     
     // keybord hiding by a tap
