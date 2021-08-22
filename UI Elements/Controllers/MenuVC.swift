@@ -35,6 +35,14 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         return button
     }()
     
+    private lazy var scrollViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "ScrollView")
+        button.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .normal)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
+        return button
+    }()
+    
     private lazy var textFieldButton: MyCustomButton = {
         let button = MyCustomButton(title: "TextField")
         return button
@@ -172,6 +180,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             labelButton,
             buttonButton,
             imageViewButton,
+            scrollViewButton,
             textFieldButton,
             textViewButton,
             switchButton,
@@ -232,6 +241,9 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
                                                      backgroundColor: .white)
         case imageViewButton: vc = ImageViewVC(title: "UIImageView",
                                                            backgroundColor: .systemBackground)
+        case scrollViewButton:
+            pushAlertController(with: "menu page")
+            return
         case textFieldButton: vc = TextFieldVC(title: "UITextField",
                                                backgroundColor: .systemBackground)
         case textViewButton: vc = TextViewVC(title: "UITextView",
@@ -268,6 +280,17 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         default: break
         }
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func pushAlertController(with description: String) {
+        
+        let alertController = UIAlertController(title: "This element already implemented in other places",
+                                                message: "Try to check out \(description) to find it",
+                                                preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        
+        alertController.addAction(okButton)
+        present(alertController, animated: true)
     }
 }
 
