@@ -37,7 +37,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
     
     private lazy var scrollViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "ScrollView")
-        button.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        button.backgroundColor = .lightGray.withAlphaComponent(0.3)
         button.setTitleColor(.label.withAlphaComponent(0.5), for: .normal)
         button.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
         return button
@@ -120,6 +120,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
     
     private lazy var webViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "WebView")
+        button.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1).withAlphaComponent(0.5)
         return button
     }()
     
