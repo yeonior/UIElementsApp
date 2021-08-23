@@ -93,6 +93,14 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         return button
     }()
     
+    private lazy var navigationControllerButton: MyCustomButton = {
+        let button = MyCustomButton(title: "NavigationController")
+        button.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .normal)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
+        return button
+    }()
+    
     private lazy var tabBarControllerButton: MyCustomButton = {
         let button = MyCustomButton(title: "TabBarController")
         return button
@@ -192,6 +200,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             alertControllerButton,
             activityViewControllerButton,
             progressViewButton,
+            navigationControllerButton,
             tabBarControllerButton,
             pageViewControllerButton,
             tableViewButton,
@@ -243,7 +252,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case imageViewButton: vc = ImageViewVC(title: "UIImageView",
                                                            backgroundColor: .systemBackground)
         case scrollViewButton:
-            pushAlertController(with: "menu page")
+            pushAlertController(with: "Try to check out menu page to find it")
             return
         case textFieldButton: vc = TextFieldVC(title: "UITextField",
                                                backgroundColor: .systemBackground)
@@ -264,6 +273,9 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
                                                                          backgroundColor: .systemBackground)
         case progressViewButton: vc = ProgressViewVC(title: "UIProgressView",
                                                      backgroundColor: .systemBackground)
+        case navigationControllerButton:
+            pushAlertController(with: "Navigation controller is present on every page")
+            return
         case tabBarControllerButton: vc = TabBarControllerVC(title: "UITabBarController",
                                                              backgroundColor: .systemBackground)
         case pageViewControllerButton: vc = PageViewControllerVC()
@@ -283,10 +295,10 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func pushAlertController(with description: String) {
+    private func pushAlertController(with message: String) {
         
         let alertController = UIAlertController(title: "This element already implemented in other places",
-                                                message: "Try to check out \(description) to find it",
+                                                message: "\n" + message,
                                                 preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default)
         
