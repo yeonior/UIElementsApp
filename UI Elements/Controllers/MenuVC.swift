@@ -78,6 +78,14 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         return button
     }()
     
+    private lazy var stackViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "StackView")
+        button.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .normal)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
+        return button
+    }()
+    
     private lazy var alertControllerButton: MyCustomButton = {
         let button = MyCustomButton(title: "AlertController")
         return button
@@ -197,6 +205,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             segmentedControlButton,
             pickerViewButton,
             datePickerButton,
+            stackViewButton,
             alertControllerButton,
             activityViewControllerButton,
             progressViewButton,
@@ -267,6 +276,9 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case pickerViewButton: vc = PickerViewVC()
         case datePickerButton: vc = DatePickerVC(title: "UIDatePicker",
                                                              backgroundColor: .systemBackground)
+        case stackViewButton:
+            pushAlertController(with: "Look at all these buttons, they are combined in a stackview")
+            return
         case alertControllerButton: vc = AlertControllerVC(title: "UIAlertController",
                                                            backgroundColor: .systemBackground)
         case activityViewControllerButton: vc = ActivityViewControllerVC(title: "UIActivityController",
