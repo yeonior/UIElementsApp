@@ -295,7 +295,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case progressViewButton: vc = ProgressViewVC(title: "UIProgressView",
                                                      backgroundColor: .systemBackground)
         case navigationControllerButton:
-            pushAlertController(with: "Navigation controller is present on every page")
+            pushAlertController(with: "Navigation controller is presented on every page, but embedded only on the main page")
             return
         case tabBarControllerButton: vc = TabBarControllerVC(title: "UITabBarController",
                                                              backgroundColor: .systemBackground)
@@ -305,7 +305,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case tableViewControllerButton: vc = TableViewControllerVC(title: "UITableViewController",
                                                                    backgroundColor: .systemGroupedBackground)
         case searchControllerButton:
-            pushAlertController(with: "Search controller is located in UITableViewController")
+            pushAlertController(with: "Search controller is hiding inside UITableViewController")
             return
         case collectionViewButton: vc = CollectionViewVC(title: "UICollectionView",
                                                          backgroundColor: .systemBackground)
