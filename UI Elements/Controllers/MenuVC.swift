@@ -129,6 +129,14 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         return button
     }()
     
+    private lazy var searchControllerButton: MyCustomButton = {
+        let button = MyCustomButton(title: "SearchController")
+        button.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .normal)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
+        return button
+    }()
+    
     private lazy var collectionViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "CollectionView")
         return button
@@ -214,6 +222,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             pageViewControllerButton,
             tableViewButton,
             tableViewControllerButton,
+            searchControllerButton,
             collectionViewButton,
             webViewButton
         ]
@@ -295,6 +304,9 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
                                                backgroundColor: .systemBackground)
         case tableViewControllerButton: vc = TableViewControllerVC(title: "UITableViewController",
                                                                    backgroundColor: .systemGroupedBackground)
+        case searchControllerButton:
+            pushAlertController(with: "Search controller is located in UITableViewController")
+            return
         case collectionViewButton: vc = CollectionViewVC(title: "UICollectionView",
                                                          backgroundColor: .systemBackground)
         case webViewButton:
