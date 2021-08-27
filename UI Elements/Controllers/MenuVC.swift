@@ -43,6 +43,14 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         return button
     }()
     
+    private lazy var toolbarButton: MyCustomButton = {
+        let button = MyCustomButton(title: "Toolbar")
+        button.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .normal)
+        button.setTitleColor(.label.withAlphaComponent(0.5), for: .highlighted)
+        return button
+    }()
+    
     private lazy var textFieldButton: MyCustomButton = {
         let button = MyCustomButton(title: "TextField")
         return button
@@ -224,6 +232,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             buttonButton,
             imageViewButton,
             scrollViewButton,
+            toolbarButton,
             textFieldButton,
             textViewButton,
             switchButton,
@@ -322,6 +331,10 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             pushAlertController(withTitle: .button,
                                 andMessage: "Try to check out the menu page to find it")
             return
+        case toolbarButton:
+            pushAlertController(withTitle: .button,
+                                andMessage: "You can see it inside TextField or TextView right above the keyboard")
+            return
         case textFieldButton: vc = TextFieldVC(title: "UITextField",
                                                backgroundColor: .systemBackground)
         case textViewButton: vc = TextViewVC(title: "UITextView",
@@ -359,7 +372,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
                                                                    backgroundColor: .systemGroupedBackground)
         case searchControllerButton:
             pushAlertController(withTitle: .button,
-                                andMessage: "Search controller is hiding inside UITableViewController")
+                                andMessage: "Search controller is hiding inside TableViewController")
             return
         case collectionViewButton: vc = CollectionViewVC(title: "UICollectionView",
                                                          backgroundColor: .systemBackground)
