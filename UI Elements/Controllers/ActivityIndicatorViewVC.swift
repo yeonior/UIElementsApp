@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ActivityIndicatorViewVC: UIViewController, TitleAndColorProvider {
+final class ActivityIndicatorViewVC: UIViewController, TitleAndColorProvider {
     
     private let myActivityIndicator = UIActivityIndicatorView()
     private let myLabel = UILabel()
@@ -63,7 +63,7 @@ class ActivityIndicatorViewVC: UIViewController, TitleAndColorProvider {
         
         // animating
         myActivityIndicator.startAnimating()
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { [unowned self] timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { timer in
             self.myActivityIndicator.stopAnimating()
             self.myLabel.isHidden = false
             timer.invalidate()
