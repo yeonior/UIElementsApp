@@ -157,6 +157,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         super.viewDidLoad()
         
         view.addSubview(myScrollView)
+        configureNavigationBar()
         configureScrollView()
         configureButtons()        
     }
@@ -183,9 +184,15 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+        
+    // MARK: - Navigation bar configuring
+    private func configureNavigationBar() {
+        
+        let randomBarButtonItem = UIBarButtonItem(title: "Random", style: .plain, target: self, action: #selector(buttonDidTouchUpInside(_:)))
+        navigationItem.rightBarButtonItem = randomBarButtonItem
+    }
     
     // MARK: - Scroll view configuring
-    
     private func configureScrollView() {
         
         myScrollView.bounds = view.bounds
@@ -202,7 +209,6 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
     }
     
     // MARK: - Buttons configuring
-    
     private func configureButtons() {
         
         let buttons = [
@@ -264,9 +270,39 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
     // pushing a specific view controller
     @objc private func buttonDidTouchUpInside(_ sender: UIButton) {
         
+        var button = sender
         var vc = UIViewController()
         
-        switch sender {
+        // choosing a random button
+        if button == navigationItem.rightBarButtonItem {
+            let buttons = [
+                viewButton,
+                labelButton,
+                buttonButton,
+                imageViewButton,
+                textFieldButton,
+                textViewButton,
+                switchButton,
+                sliderButton,
+                segmentedControlButton,
+                pickerViewButton,
+                datePickerButton,
+                alertControllerButton,
+                activityViewControllerButton,
+                activityIndicatorViewButton,
+                progressViewButton,
+                tabBarControllerButton,
+                pageViewControllerButton,
+                tableViewButton,
+                tableViewControllerButton,
+                collectionViewButton,
+                webViewButton
+            ]
+            guard let randomButton = buttons.randomElement() else { return }
+            button = randomButton
+        }
+        
+        switch button {
         case viewButton: vc = ViewVC(title: "UIView",
                                                  backgroundColor: .systemBackground)
         case labelButton: vc = LabelVC(title: "UILabel",
