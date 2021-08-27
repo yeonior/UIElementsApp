@@ -189,7 +189,14 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
     private func configureNavigationBar() {
         
         let randomBarButtonItem = UIBarButtonItem(title: "Random", style: .plain, target: self, action: #selector(buttonDidTouchUpInside(_:)))
+        let infoImage = UIImage(systemName: "info.circle")
+        let infoBarButtonItem = UIBarButtonItem(image: infoImage, style: .plain, target: self, action: #selector(showInfo))
         navigationItem.rightBarButtonItem = randomBarButtonItem
+        navigationItem.leftBarButtonItem = infoBarButtonItem
+    }
+    
+    @objc private func showInfo() {
+        pushAlertController(withTitle: .info, andMessage: "The UIKit framework provides the core objects that need to build apps for iOS.\n\nHere are shown the most frequently used elements of this framework.\n\nIn addition to the above, WebView is also included here, but it’s not the object of UIKit (it relates to WebKit). It is for that reason this element is colored orange.")
     }
     
     // MARK: - Scroll view configuring
@@ -312,7 +319,8 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case imageViewButton: vc = ImageViewVC(title: "UIImageView",
                                                            backgroundColor: .systemBackground)
         case scrollViewButton:
-            pushAlertController(with: "Try to check out the menu page to find it")
+            pushAlertController(withTitle: .button,
+                                andMessage: "Try to check out the menu page to find it")
             return
         case textFieldButton: vc = TextFieldVC(title: "UITextField",
                                                backgroundColor: .systemBackground)
@@ -328,7 +336,8 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case datePickerButton: vc = DatePickerVC(title: "UIDatePicker",
                                                              backgroundColor: .systemBackground)
         case stackViewButton:
-            pushAlertController(with: "Look at all these buttons, they are combined in a stackview")
+            pushAlertController(withTitle: .button,
+                                andMessage: "Look at all these buttons, they are combined in a stackview")
             return
         case alertControllerButton: vc = AlertControllerVC(title: "UIAlertController",
                                                            backgroundColor: .systemBackground)
@@ -338,7 +347,8 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case progressViewButton: vc = ProgressViewVC(title: "UIProgressView",
                                                      backgroundColor: .systemBackground)
         case navigationControllerButton:
-            pushAlertController(with: "Navigation controller is presented on every page, but embedded only on the main page")
+            pushAlertController(withTitle: .button,
+                                andMessage: "Navigation controller is presented on every page, but embedded only on the main page")
             return
         case tabBarControllerButton: vc = TabBarControllerVC(title: "UITabBarController",
                                                              backgroundColor: .systemBackground)
@@ -348,7 +358,8 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case tableViewControllerButton: vc = TableViewControllerVC(title: "UITableViewController",
                                                                    backgroundColor: .systemGroupedBackground)
         case searchControllerButton:
-            pushAlertController(with: "Search controller is hiding inside UITableViewController")
+            pushAlertController(withTitle: .button,
+                                andMessage: "Search controller is hiding inside UITableViewController")
             return
         case collectionViewButton: vc = CollectionViewVC(title: "UICollectionView",
                                                          backgroundColor: .systemBackground)
@@ -361,10 +372,26 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         }
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    private func pushAlertController(with message: String) {
         
-        let alertController = UIAlertController(title: "This element already implemented in other places",
+    // for title of alerts
+    private enum AlertControllerTitle {
+        case info
+        case button
+    }
+    
+    // pushing an alert
+    private func pushAlertController(withTitle title: AlertControllerTitle, andMessage message: String) {
+        
+        var defaultTitle = ""
+        
+        switch title {
+        case .info:
+            defaultTitle = "Welcome to UIKit!"
+        case .button:
+            defaultTitle = "This element already implemented in other places"
+        }
+        
+        let alertController = UIAlertController(title: defaultTitle,
                                                 message: "\n" + message,
                                                 preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default)
@@ -373,5 +400,3 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         present(alertController, animated: true)
     }
 }
-
-
