@@ -96,6 +96,11 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         return button
     }()
     
+    private lazy var activityIndicatorViewButton: MyCustomButton = {
+        let button = MyCustomButton(title: "ActivityIndicatorView")
+        return button
+    }()
+    
     private lazy var progressViewButton: MyCustomButton = {
         let button = MyCustomButton(title: "ProgressView")
         return button
@@ -216,6 +221,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
             stackViewButton,
             alertControllerButton,
             activityViewControllerButton,
+            activityIndicatorViewButton,
             progressViewButton,
             navigationControllerButton,
             tabBarControllerButton,
@@ -270,7 +276,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
         case imageViewButton: vc = ImageViewVC(title: "UIImageView",
                                                            backgroundColor: .systemBackground)
         case scrollViewButton:
-            pushAlertController(with: "Try to check out menu page to find it")
+            pushAlertController(with: "Try to check out the menu page to find it")
             return
         case textFieldButton: vc = TextFieldVC(title: "UITextField",
                                                backgroundColor: .systemBackground)
@@ -292,6 +298,7 @@ final class MenuVC: UIViewController, TitleAndColorProvider {
                                                            backgroundColor: .systemBackground)
         case activityViewControllerButton: vc = ActivityViewControllerVC(title: "UIActivityController",
                                                                          backgroundColor: .systemBackground)
+        case activityIndicatorViewButton: vc = ActivityIndicatorViewVC(title: "ActivityIndicatorView", backgroundColor: .systemBackground)
         case progressViewButton: vc = ProgressViewVC(title: "UIProgressView",
                                                      backgroundColor: .systemBackground)
         case navigationControllerButton:

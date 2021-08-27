@@ -42,6 +42,7 @@
 		A2BBBDDB26B846D2004AC00F /* MyCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */; };
 		A2BBBDDD26B8633F004AC00F /* TextFieldVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBDDC26B8633F004AC00F /* TextFieldVC.swift */; };
 		A2C751CA26C04EC300EBBD23 /* UIScrollView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C751C926C04EC300EBBD23 /* UIScrollView + Extensions.swift */; };
+		A2D5D3DD26D7D42F004F306B /* ActivityIndicatorViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5D3DC26D7D42F004F306B /* ActivityIndicatorViewVC.swift */; };
 		A2D9621026C93F7E008FF2B6 /* TableViewControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9620F26C93F7E008FF2B6 /* TableViewControllerVC.swift */; };
 		A2D9621526C96126008FF2B6 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9621426C96126008FF2B6 /* ItemModel.swift */; };
 		A2DDC21026B56E640059262D /* SegmentedControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */; };
@@ -87,6 +88,7 @@
 		A2BBBDDA26B846D2004AC00F /* MyCustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomActivity.swift; sourceTree = "<group>"; };
 		A2BBBDDC26B8633F004AC00F /* TextFieldVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldVC.swift; sourceTree = "<group>"; };
 		A2C751C926C04EC300EBBD23 /* UIScrollView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Extensions.swift"; sourceTree = "<group>"; };
+		A2D5D3DC26D7D42F004F306B /* ActivityIndicatorViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewVC.swift; sourceTree = "<group>"; };
 		A2D9620F26C93F7E008FF2B6 /* TableViewControllerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerVC.swift; sourceTree = "<group>"; };
 		A2D9621426C96126008FF2B6 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		A2DDC20F26B56E640059262D /* SegmentedControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlVC.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				A26A3DEE26B464C20008C590 /* DatePickerVC.swift */,
 				A21638E126B710A900DF0D37 /* AlertControllerVC.swift */,
 				A2BBBDD526B81190004AC00F /* ActivityViewControllerVC.swift */,
+				A2D5D3DC26D7D42F004F306B /* ActivityIndicatorViewVC.swift */,
 				A20D179726C0419900C714D8 /* ProgressViewVC.swift */,
 				A24C6FB726CAB1CC004E352E /* TabBarControllerVC.swift */,
 				A2422F5B26C1232A00A3BFF4 /* PageViewControllerVC.swift */,
@@ -328,6 +331,7 @@
 				A26A3DEF26B464C20008C590 /* DatePickerVC.swift in Sources */,
 				A276699C26BC59A100FE8746 /* WebViewVC.swift in Sources */,
 				A2422F5E26C124CF00A3BFF4 /* PageModel.swift in Sources */,
+				A2D5D3DD26D7D42F004F306B /* ActivityIndicatorViewVC.swift in Sources */,
 				A298117226CC16BA00EA3D65 /* MainCell.swift in Sources */,
 				A21F4A5B26AED9D2001E39D6 /* MenuVC.swift in Sources */,
 				A2BBBDD626B81190004AC00F /* ActivityViewControllerVC.swift in Sources */,
